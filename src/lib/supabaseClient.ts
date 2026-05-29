@@ -1,12 +1,35 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
-const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
+/**
+ * Lazy Supabase singleton.
+ *
+ * `createClient` throws when `supabaseUrl` is an empty string, which happens
+ * during Vercel's "collect page configuration" phase before env vars are
+ * available. Wrapping it in a getter ensures the client is only instantiated
+ * at request-time, not at module-evaluation time.
+ */
+let _supabase: SupabaseClient | null = null;
 
-export const supabase = createClient(
-  SUPABASE_URL || "",
-  SUPABASE_ANON_KEY || ""
-);
+export function getSupabase(): SupabaseClient {
+  if (!_supabase) {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    if (!url || !key) {
+      throw new Error(
+        "[supabaseClient] NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY must be set."
+      );
+    }
+    _supabase = createClient(url, key);
+  }
+  return _supabase;
+}
+
+/** @deprecated Use `getSupabase()` instead. */
+export const supabase = new Proxy({} as SupabaseClient, {
+  get(_target, prop) {
+    return (getSupabase() as any)[prop];
+  },
+});
 
 export type DbService = {
   id: string;
