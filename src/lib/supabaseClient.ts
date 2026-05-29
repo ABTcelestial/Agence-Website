@@ -7,19 +7,61 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
  * during Vercel's "collect page configuration" phase before env vars are
  * available. Wrapping it in a getter ensures the client is only instantiated
  * at request-time, not at module-evaluation time.
+ *
+ * If env vars are missing (e.g. not set in Vercel project settings), we return
+ * a no-op stub so pages render instead of crashing. Data calls will silently
+ * fail — configure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY
+ * in your Vercel project settings to restore full functionality.
  */
 let _supabase: SupabaseClient | null = null;
+
+function createNoOpStub(): SupabaseClient {
+  const warn = (method: string) => {
+    console.warn(
+      `[supabaseClient] ${method}() called but NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY are not set. ` +
+      "Add them in Vercel → Project Settings → Environment Variables."
+    );
+  };
+  // Minimal stub — returns objects that resolve to empty data, never throw.
+  const chainable: any = new Proxy(
+    { data: null, error: null },
+    {
+      get(target, prop) {
+        if (prop === "then" || prop === "catch" || prop === "finally") return undefined;
+        if (prop in target) return target[prop as keyof typeof target];
+        return (..._args: any[]) => {
+          warn(String(prop));
+          return Promise.resolve({ data: null, error: { message: "Supabase not configured" } });
+        };
+      },
+    }
+  );
+  return new Proxy({} as SupabaseClient, {
+    get(_t, prop) {
+      if (prop === "from" || prop === "rpc" || prop === "storage") {
+        return (..._args: any[]) => chainable;
+      }
+      return (..._args: any[]) => {
+        warn(String(prop));
+        return Promise.resolve({ data: null, error: { message: "Supabase not configured" } });
+      };
+    },
+  });
+}
 
 export function getSupabase(): SupabaseClient {
   if (!_supabase) {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
     if (!url || !key) {
-      throw new Error(
-        "[supabaseClient] NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY must be set."
+      console.warn(
+        "[supabaseClient] NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY is not set. " +
+        "Using no-op stub. Add the env vars in Vercel → Project Settings → Environment Variables."
       );
+      _supabase = createNoOpStub();
+    } else {
+      _supabase = createClient(url, key);
     }
-    _supabase = createClient(url, key);
   }
   return _supabase;
 }
