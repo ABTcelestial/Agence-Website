@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@import '../styles/fonts.css';
+@import '../styles/theme.css';
+
+/* ── RTL Support (Arabic) ─────────────────────────────────── */
+[dir="rtl"] .hero-title-gradient,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] p,
+[dir="rtl"] li,
+[dir="rtl"] label {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+[dir="rtl"] .section-label {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .gold-line:not(.gold-line-center) {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir="rtl"] .flex {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .ml-2\.5 { margin-left: 0; margin-right: 0.625rem; }
+[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+
+[dir="rtl"] .contact-info-card {
+  flex-direction: row;
+}
+
+[dir="rtl"] .space-y-3\.5 > * + * {
+  margin-top: 0.875rem;
+}
+
+/* ── PREMIUM LUXURY GRAPHICS & ACCENTS ───────────────────── */
+
+.premium-grid {
+  background-image: radial-gradient(rgba(26, 26, 110, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .premium-grid {
+  background-image: radial-gradient(rgba(201, 168, 76, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.premium-glow-orb {
+  filter: blur(120px);
+  opacity: 0.5;
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 17, 26, 0.4);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.glow-hover-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+.glow-hover-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(201, 168, 76, 0.06), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow-hover-card:hover::before {
+  opacity: 1;
+}
+
+/* Custom bento cell grid spacing */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}

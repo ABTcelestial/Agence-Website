@@ -1,0 +1,45 @@
+# XenonDz — Agence Digitale en Algérie
+
+XenonDz est une agence digitale basée à Akbou, Béjaïa, spécialisée dans la création de sites web professionnels sur mesure, le e-commerce de haute performance et l'automatisation B2B pour le marché algérien.
+
+---
+
+## Core Services
+
+### 1. Sites Web Professionnels (Showcase)
+*   **Description** : Conception et développement de sites vitrines ultra-rapides et responsives codés sur-mesure en React/Next.js (zéro WordPress).
+*   **Price** : À partir de 20 000 DZD.
+*   **Key Value** : Vitesse de chargement optimale (LCP < 1s), optimisé pour le référencement local (SEO).
+
+### 2. Solutions E-commerce Clés en Main
+*   **Description** : Tunnels de vente optimisés pour maximiser les achats en ligne en Algérie.
+*   **Price** : À partir de 120 000 DZD.
+*   **Key Value** : Intégrations logistiques locales adaptées au paiement à la livraison (Cash-on-Delivery), gestion automatisée des stocks et formation d'administration complète.
+
+### 3. Automatisation Web & Scraping
+*   **Description** : Développement de scripts en Python pour automatiser les tâches administratives et commerciales répétitives.
+*   **Price** : À partir de 35 000 DZD.
+*   **Key Value** : Scraping de leads qualifiés (Google Maps, annuaires), synchronisation CRM automatisée (Hubspot, Sheets) et automatisation d'emails froids.
+
+### 4. Référencement Naturel & SEO / GEO
+*   **Description** : Stratégie de visibilité sur les moteurs de recherche traditionnels et IA.
+*   **Price** : À partir de 25 000 DZD.
+*   **Key Value** : Optimisation GEO (Generative Engine Optimization) pour être cité par ChatGPT, Claude, Perplexity et Google AI Overviews.
+
+---
+
+## Technical Specifications
+*   **Front-End** : Next.js App Router (React), Tailwind CSS, Vanilla CSS, TypeScript.
+*   **Back-End & Databases** : Supabase, PostgreSQL.
+*   **Automation Engines** : Python (BeautifulSoup, Playwright, Pandas).
+*   **Hosting & Uptime** : Déploiements serverless sur CDN mondiaux (Vercel) garantissant une disponibilité de 99.9%.
+
+---
+
+## Entity Details & Coordinates
+*   **Official Name** : XenonDz
+*   **Location** : Akbou, Béjaïa, Algérie (06000)
+*   **Area Served** : Algérie entière
+*   **Telephone** : +213-0794055836
+*   **Email** : xenondz.inc@gmail.com
+*   **Official Website** : https://xenondz.vercel.app

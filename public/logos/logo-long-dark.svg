@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 60" width="250" height="60">
+  <defs>
+    <!-- Premium Gradient matching brand style -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a6e" />
+      <stop offset="100%" stop-color="#2626a0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Stylized Icon Box (matches pure CSS Header logo) -->
+  <rect x="10" y="10" width="40" height="40" rx="10" fill="url(#logoGradient)" />
+  <text x="30" y="36" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">X</text>
+  
+  <!-- Brand Text -->
+  <text x="64" y="38" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="700" font-size="25" fill="#0d0d0d" letter-spacing="-0.03em">Xenon<tspan fill="#c9a84c">Dz</tspan></text>
+</svg>
