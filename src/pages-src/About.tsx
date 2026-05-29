@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { 
   Target, Users, Lightbulb, Award, Github, Linkedin, Instagram, Loader2, 
-  Eye, ShieldCheck, Zap, Cpu, History
+  ShieldCheck, Zap, Cpu, History, Briefcase, MapPin
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useEffect, useState } from "react";
@@ -12,134 +12,138 @@ import type { DbTeamMember } from "../admin/AdminTeam";
 import { SEOHead } from '../components/seo/SEOHead';
 import { BreadcrumbSchema, BREADCRUMBS } from '../components/seo/BreadcrumbSchema';
 
-/* ─── Static Fallback & Local Specs ─── */
+/* ─── Static Fallback & Non-Technical Specs ─── */
 const STATIC_TEAM: DbTeamMember[] = [
   {
     id: "1", name: "Rynas Kebdi", sort_order: 0, is_active: true,
-    role_fr: "CEO & Fondateur", role_en: "CEO & Founder", role_ar: "المدير التنفيذي والمؤسس",
-    bio_fr: "Spécialiste Front-end et Automatisation IA, passionné par l'entrepreneuriat digital.",
-    bio_en: "Front-end & AI Automation specialist, passionate about digital entrepreneurship.",
-    bio_ar: "متخصص في الواجهة الأمامية وأتمتة الذكاء الاصطناعي، شغوف بريادة الأعمال الرقمية.",
+    role_fr: "Directeur de l'Agence & Fondateur", role_en: "Agency Director & Founder", role_ar: "مدير الوكالة والمؤسس",
+    bio_fr: "Spécialiste de la création de sites web performants et de l'intégration d'outils d'automatisation intelligente pour les entreprises.",
+    bio_en: "Specialist in building high-performance websites and integrating intelligent automation tools for businesses.",
+    bio_ar: "متخصص في إنشاء مواقع ويب عالية الأداء ودمج أدوات الأتمتة الذكية للمؤسسات.",
     avatar_url: "", github: "https://github.com/sayniir",
     linkedin: "https://www.linkedin.com/in/rynas-kebdi-526b70364/",
     instagram: "https://www.instagram.com/xenon.dz",
   },
   {
     id: "2", name: "Ryan AitBessai", sort_order: 1, is_active: true,
-    role_fr: "Lead Dev & Co-Fondateur", role_en: "Lead Dev & Co-Founder", role_ar: "مطور رئيسي ومؤسس مشارك",
-    bio_fr: "Spécialiste Backend & Base de données.", bio_en: "Backend & Database specialist.", bio_ar: "متخصص في الواجهة الخلفية وقواعد البيانات.",
+    role_fr: "Directeur Technique & Co-Fondateur", role_en: "Technical Director & Co-Founder", role_ar: "المدير التقني والمؤسس المشارك",
+    bio_fr: "Expert en architecture web et en optimisation des bases de données pour garantir des sites rapides et sécurisés.",
+    bio_en: "Expert in web architecture and database optimization to guarantee fast and secure websites.",
+    bio_ar: "خبير في هندسة الويب وتحسين قواعد البيانات لضمان مواقع سريعة وآمنة.",
     avatar_url: "", github: "", linkedin: "", instagram: "",
   },
   {
     id: "3", name: "Amar Bellabas", sort_order: 2, is_active: true,
-    role_fr: "Directeur Créatif & Cybersécurité", role_en: "Creative Director & Cybersecurity", role_ar: "المدير الإبداعي والأمن السيبراني",
-    bio_fr: "Spécialiste UI/UX, consultant cybersécurité.", bio_en: "UI/UX specialist, cybersecurity consultant.", bio_ar: "متخصص في UI/UX واستشاري أمن سيبراني.",
+    role_fr: "Directeur de Création & Sécurité", role_en: "Creative & Security Director", role_ar: "المدير الإبداعي والأمني",
+    bio_fr: "Créateur d'interfaces sur mesure modernes (ergonomie UI/UX) et consultant en protection des données en ligne.",
+    bio_en: "Designer of modern custom interfaces (UI/UX ergonomics) and consultant in online data protection.",
+    bio_ar: "مصمم واجهات مخصصة وعصرية (UI/UX) ومستشار في حماية البيانات عبر الإنترنت.",
     avatar_url: "", github: "", linkedin: "", instagram: "",
   },
 ];
 
 interface MemberSpec {
-  stack: string[];
+  skills: string[];
   location: string;
 }
 
 const MEMBER_SPECS: Record<string, MemberSpec> = {
   "Rynas Kebdi": {
-    stack: ["React", "Next.js", "TypeScript", "Python", "n8n", "AI API"],
+    skills: ["Création de Sites", "Automatisation", "IA & Processus"],
     location: "Béjaïa / Alger"
   },
   "Ryan AitBessai": {
-    stack: ["Node.js", "PostgreSQL", "Supabase", "Docker", "REST API"],
+    skills: ["Développement Web", "Performance", "Bases de données"],
     location: "Alger"
   },
   "Amar Bellabas": {
-    stack: ["Figma", "UI/UX Design", "Pentesting", "Security Audit"],
+    skills: ["Design UI/UX", "Ergonomie", "Sécurité Web"],
     location: "Béjaïa"
   }
 };
 
 const DEFAULT_MEMBER_SPEC: MemberSpec = {
-  stack: ["Next.js", "React", "Tailwind"],
+  skills: ["Création de Sites", "Développement"],
   location: "Algérie"
 };
 
-/* ─── Local Manifesto Translations (No Clichés) ─── */
+/* ─── Local Manifesto Translations (Pure Business Value, No Technical Jargon) ─── */
 const MANIFESTO_TRANSLATIONS = {
   fr: {
-    title: "Le Manifeste Xenon",
-    subtitle: "Zéro bla-bla, du code et des performances mesurables.",
+    title: "Nos Engagements",
+    subtitle: "Des résultats concrets et un accompagnement transparent pour votre croissance.",
     items: [
       {
         icon: <Cpu size={22} className="text-primary dark:text-accent" />,
-        title: "0% Bloatware, 100% Core Code",
-        desc: "Nous rejetons WordPress, Shopify et les templates pré-conçus. Chaque ligne de code est écrite sur mesure en React et Next.js. Vitesse brute et performances maximales sur les réseaux mobiles algériens (3G/4G/ADSL)."
+        title: "Technologie sur-mesure ultra-rapide",
+        desc: "Nous concevons des sites modernes et fluides sans utiliser de modèles lourds ou obsolètes. Votre site s'affiche instantanément, même sur les connexions mobiles courantes en Algérie."
       },
       {
         icon: <Zap size={22} className="text-primary dark:text-accent" />,
-        title: "Optimisé Réalités E-commerce",
-        desc: "Le marché algérien a ses particularités. Nous concevons nos tunnels de commande pour le paiement à la livraison (CoD), avec des formulaires d'achat ultra-rapides et des intégrations de validation SMS/WhatsApp."
+        title: "Adapté au marché algérien",
+        desc: "Nous optimisons vos ventes avec des formulaires simplifiés pour le paiement à la livraison (CoD), et des outils d'envoi automatique de confirmations par SMS ou WhatsApp."
       },
       {
         icon: <History size={22} className="text-primary dark:text-accent" />,
-        title: "Délais garantis ou pénalité",
-        desc: "Le respect des délais est un engagement contractuel chez nous. Si nous livrons votre projet en retard, une pénalité financière automatique est appliquée et déduite de votre facture finale."
+        title: "Respect strict des délais de livraison",
+        desc: "Votre temps est précieux. Nous nous engageons contractuellement sur une date de livraison. Si nous dépassons ce délai, une réduction financière est appliquée à votre facture."
       },
       {
         icon: <ShieldCheck size={22} className="text-primary dark:text-accent" />,
-        title: "Sécurité & Audits intégrés",
-        desc: "La cybersécurité n'est pas une option ajoutée à la fin. Elle est implémentée dès la conception : anti-DDoS, chiffrement des données, et audits de vulnérabilité complets avant chaque mise en ligne."
+        title: "Sécurité et protection des données",
+        desc: "Nous protégeons votre site et les informations de vos clients contre le piratage. Chaque projet intègre les meilleures protections de sécurité dès le premier jour."
       }
     ]
   },
   en: {
-    title: "The Xenon Manifesto",
-    subtitle: "No fluff, pure code, and measurable performance.",
+    title: "Our Commitments",
+    subtitle: "Concrete results and transparent partnership for your business growth.",
     items: [
       {
         icon: <Cpu size={22} className="text-primary dark:text-accent" />,
-        title: "0% Bloatware, 100% Core Code",
-        desc: "We reject heavy CMS, WordPress templates, and page builders. Every single website is built line-by-line using Next.js and React. Pure loading speed even on slow mobile networks."
+        title: "Ultra-fast custom technology",
+        desc: "We build modern, lightweight websites without bloated templates. Your site loads instantly, even on standard mobile networks."
       },
       {
         icon: <Zap size={22} className="text-primary dark:text-accent" />,
-        title: "Designed for Local Realities",
-        desc: "Native Cash-on-Delivery (CoD) checkout forms, optimized local mobile responsiveness, one-click ordering systems, and SMS/WhatsApp confirmation workflows."
+        title: "Built for local Algerian markets",
+        desc: "Optimized checkouts for Cash-on-Delivery (CoD) processes, simple one-click forms, and direct SMS or WhatsApp validation tools."
       },
       {
         icon: <History size={22} className="text-primary dark:text-accent" />,
-        title: "Guaranteed Deadlines",
-        desc: "We respect your time. If we miss the agreed delivery deadline by even a single day, a financial penalty is automatically applied and deducted from your final invoice."
+        title: "Strict delivery deadlines",
+        desc: "Your time is valuable. We commit to a precise delivery date. In case of delay, a clear financial discount is automatically applied to your bill."
       },
       {
         icon: <ShieldCheck size={22} className="text-primary dark:text-accent" />,
-        title: "Secure by Architecture",
-        desc: "Security is built directly into our frameworks. Encrypted databases, protection against common web vulnerabilities, and security auditing before production launch."
+        title: "Security & customer protection",
+        desc: "We secure your platform and keep your customer databases protected. Standard security frameworks are active by default on every release."
       }
     ]
   },
   ar: {
-    title: "بيان كسينون البرمجي",
-    subtitle: "بدون تعقيد، شيفرة برمجية نقية وأداء قابل للقياس.",
+    title: "التزاماتنا",
+    subtitle: "نتائج ملموسة وشراكة شفافة لتطوير أعمالك.",
     items: [
       {
         icon: <Cpu size={22} className="text-primary dark:text-accent" />,
-        title: "0% ووردبريس، 100% برمجة نقية",
-        desc: "نرفض استخدام القوالب الجاهزة والأنظمة الثقيلة. نكتب كل سطر برمجي باستخدام React و Next.js لضمان سرعة فائقة على شبكات الاتصال الجزائرية."
+        title: "تقنية مخصصة وسريعة للغاية",
+        desc: "نقوم بتصميم مواقع عصرية وسريعة دون استخدام قوالب ثقيلة. يفتح موقعك فورًا حتى على شبكات الهاتف النقال العادية."
       },
       {
         icon: <Zap size={22} className="text-primary dark:text-accent" />,
-        title: "مطور لواقع التجارة المحلية",
-        desc: "تسهيل عمليات الدفع عند الاستلام (CoD) بنماذج سريعة بضغطة واحدة، وتكامل أنظمة التوصيل والتحقق عبر SMS أو WhatsApp."
+        title: "متوافق مع السوق الجزائرية",
+        desc: "تسهيل عمليات الشراء بنماذج مخصصة للدفع عند الاستلام (CoD)، مع إمكانية التأكيد التلقائي عبر رسائل القصيرة أو WhatsApp."
       },
       {
         icon: <History size={22} className="text-primary dark:text-accent" />,
-        title: "احترام تام للمواعيد أو خصم مالي",
-        desc: "الوقت ذو قيمة عالية. إذا تأخرنا في تسليم المشروع ولو ليوم واحد، يتم تطبيق خصم مالي تلقائي ومباشر من الفاتورة النهائية."
+        title: "احترام تام لمواعيد التسليم",
+        desc: "نلتزم بموعد تسليم محدد بدقة. في حالة التأخر، يتم تطبيق خصم مالي تلقائي ومباشر من قيمة الفاتورة."
       },
       {
         icon: <ShieldCheck size={22} className="text-primary dark:text-accent" />,
-        title: "أمن مدمج وحماية متكاملة",
-        desc: "الحماية السيبرانية ليست مجرد خيار إضافي. نقوم بتأمين المواقع في صلب البنية التحتية البرمجية مع تشفير البيانات وفحص الثغرات قبل الإطلاق."
+        title: "حماية البيانات وأمن المواقع",
+        desc: "نحمي موقعك وقواعد بيانات عملائك ضد الاختراقات الأمنية. الحماية مدمجة بشكل أساسي في كل مشروع."
       }
     ]
   }
@@ -246,7 +250,7 @@ export function About() {
           </div>
         </section>
 
-        {/* Clean, Non-Interactive developer-themed team section */}
+        {/* Clean, Non-Technical Grid for Agency Profile */}
         <section className="py-24 relative border-b border-border/40 bg-background/50 backdrop-blur-3xl">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -270,14 +274,13 @@ export function About() {
                       key={member.id}
                       className="bg-card border border-border/80 rounded-2xl shadow-lg p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:border-accent/40"
                     >
-                      {/* Top section: header & status */}
                       <div>
-                        <div className="flex items-start justify-between mb-4">
-                          {/* Profile Circle */}
+                        {/* Avatar and Location */}
+                        <div className="flex items-center justify-between mb-5">
                           <div
-                            className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-xs shrink-0"
+                            className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-sm shrink-0 border border-border/50"
                             style={{
-                              background: "linear-gradient(135deg, rgba(26,26,110,0.1), rgba(201,168,76,0.1))",
+                              background: "linear-gradient(135deg, rgba(26,26,110,0.06), rgba(201,168,76,0.06))",
                               color: "var(--primary)"
                             }}
                           >
@@ -295,23 +298,19 @@ export function About() {
                             )}
                           </div>
 
-                          {/* Node status dot decorator */}
-                          <div className="flex items-center gap-1.5 bg-muted/60 px-2 py-1 rounded-md text-[10px] font-mono text-muted-foreground border border-border/30">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#27c93f] animate-pulse" />
-                            Active
+                          <div className="flex items-center gap-1 text-xs text-muted-foreground bg-muted/50 px-2.5 py-1 rounded-full border border-border/30">
+                            <MapPin size={12} className="text-accent" />
+                            {spec.location}
                           </div>
                         </div>
 
-                        {/* Name & Role */}
+                        {/* Identity */}
                         <div className="space-y-1 mb-4">
                           <h3 className="text-base font-bold text-foreground font-sans">
                             {member.name}
                           </h3>
-                          <p className="text-xs font-semibold text-accent font-sans">
+                          <p className="text-xs font-medium text-accent font-sans">
                             {getMemberRole(member)}
-                          </p>
-                          <p className="text-[10px] text-muted-foreground font-mono">
-                            // Based in {spec.location}, DZ
                           </p>
                         </div>
 
@@ -321,23 +320,22 @@ export function About() {
                         </p>
                       </div>
 
-                      {/* Bottom section: Core Stack config & Socials */}
+                      {/* Expertise and Social Networks */}
                       <div>
-                        {/* Custom Code Block look for Stack */}
-                        <div className="bg-muted/50 border border-border/40 rounded-xl p-3 mb-4 font-mono text-[11px]">
-                          <span className="text-[#a78bfa]">stack</span>: <span className="text-[#cbd5e1]">[</span>
-                          <div className="flex flex-wrap gap-x-1.5 gap-y-1 mt-1 pl-3">
-                            {spec.stack.map((tech, i) => (
-                              <span key={tech}>
-                                <span className="text-[#34d399]">"{tech}"</span>
-                                {i < spec.stack.length - 1 && <span className="text-[#cbd5e1]">,</span>}
-                              </span>
-                            ))}
-                          </div>
-                          <span className="text-[#cbd5e1] ml-3">]</span>
+                        {/* Plain text expertise badges instead of code array */}
+                        <div className="flex flex-wrap gap-1.5 mb-4">
+                          {spec.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="inline-flex items-center gap-1 bg-muted px-2.5 py-1 rounded-md text-xs text-foreground font-medium font-sans border border-border/30"
+                            >
+                              <Briefcase size={10} className="text-primary dark:text-accent shrink-0" />
+                              {skill}
+                            </span>
+                          ))}
                         </div>
 
-                        {/* Social Networks Row */}
+                        {/* Simple Social Links */}
                         {(member.github || member.linkedin || member.instagram || member.name === "Rynas Kebdi") && (
                           <div className="flex items-center gap-2 pt-3 border-t border-border/50">
                             {memberGithub(member) !== "#" && (
