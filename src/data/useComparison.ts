@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { supabase, DbComparison } from "../admin/supabaseClient";
 
-export function useComparison() {
-  const [comparisons, setComparisons] = useState<DbComparison[]>([]);
-  const [loading, setLoading] = useState(true);
+export function useComparison(initialComparisons?: DbComparison[]) {
+  const [comparisons, setComparisons] = useState<DbComparison[]>(
+    initialComparisons && initialComparisons.length > 0 ? initialComparisons : []
+  );
+  const [loading, setLoading] = useState(initialComparisons && initialComparisons.length > 0 ? false : true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (initialComparisons && initialComparisons.length > 0) {
+      setLoading(false);
+      return;
+    }
     async function fetchComparisons() {
       try {
         const { data, error } = await supabase

@@ -149,11 +149,17 @@ const MANIFESTO_TRANSLATIONS = {
   }
 };
 
-function useTeam() {
-  const [team, setTeam] = useState<DbTeamMember[]>([]);
-  const [loading, setLoading] = useState(true);
+function useTeam(initialTeam?: DbTeamMember[]) {
+  const [team, setTeam] = useState<DbTeamMember[]>(
+    initialTeam && initialTeam.length > 0 ? initialTeam : []
+  );
+  const [loading, setLoading] = useState(initialTeam && initialTeam.length > 0 ? false : true);
 
   useEffect(() => {
+    if (initialTeam && initialTeam.length > 0) {
+      setLoading(false);
+      return;
+    }
     async function fetchTeam() {
       try {
         const { data, error } = await supabase
@@ -171,15 +177,15 @@ function useTeam() {
       }
     }
     fetchTeam();
-  }, []);
+  }, [initialTeam]);
 
   return { team, loading };
 }
 
-export function About() {
+export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
   const { t, lang: language } = useLanguage();
   const a = t.about;
-  const { team, loading } = useTeam();
+  const { team, loading } = useTeam(initialTeam);
 
   const manifesto = MANIFESTO_TRANSLATIONS[language as "fr" | "en" | "ar"] || MANIFESTO_TRANSLATIONS.fr;
 

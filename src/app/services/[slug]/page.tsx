@@ -35,5 +35,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ServiceDetailPage({ params }: Props) {
-  return <ServiceDetailClient />;
+  const { slug } = await params;
+  let service = null;
+
+  try {
+    const [{ data: svcData }, { data: addonData }] = await Promise.all([
+      supabase.from("services").select("*").eq("slug", slug).eq("is_active", true).single(),
+      supabase.from("addons").select("*").eq("is_active", true),
+    ]);
+    if (svcData) {
+      const { mapService } = await import("@/data/services-mapping");
+      const dbAddons = (addonData || []) as any[];
+      service = mapService(svcData as any, dbAddons);
+    }
+  } catch (err) {
+    console.error("Error fetching service details on server:", err);
+  }
+
+  return <ServiceDetailClient initialService={service} />;
 }

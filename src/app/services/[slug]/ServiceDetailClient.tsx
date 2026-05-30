@@ -1,2 +1,6 @@
 'use client';
-export { ServiceDetail as ServiceDetailClient } from "@/pages-src/ServiceDetail";
+import { ServiceDetail } from "@/pages-src/ServiceDetail";
+
+export function ServiceDetailClient({ initialService }: { initialService?: any }) {
+  return <ServiceDetail initialService={initialService} />;
+}

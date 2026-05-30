@@ -189,10 +189,12 @@ function PreviewCard({ item, lang, canLoad, t }: { item: Realisation; lang: "fr"
 }
 
 /* ─── Main page ─── */
-export function Realisations() {
+export function Realisations({ initialItems }: { initialItems?: Realisation[] }) {
   const { t, lang } = useLanguage();
-  const [items, setItems] = useState<Realisation[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState<Realisation[]>(
+    initialItems && initialItems.length > 0 ? initialItems : []
+  );
+  const [loading, setLoading] = useState(initialItems && initialItems.length > 0 ? false : true);
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [siteLoaded, setSiteLoaded] = useState(false);
 
@@ -208,6 +210,10 @@ export function Realisations() {
   }, []);
 
   useEffect(() => {
+    if (initialItems && initialItems.length > 0) {
+      setLoading(false);
+      return;
+    }
     supabase
       .from("realisations")
       .select("*")
@@ -217,7 +223,7 @@ export function Realisations() {
         setItems(data || []);
         setLoading(false);
       });
-  }, []);
+  }, [initialItems]);
 
   // Collect all unique tags
   const allTags = Array.from(new Set(items.flatMap(i => i.tags || [])));

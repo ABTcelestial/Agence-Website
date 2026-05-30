@@ -1,5 +1,6 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { About } from "@/pages-src/About";
+import { supabase } from "@/lib/supabaseClient";
 
 export const metadata: Metadata = {
   title: "L'Agence Web N°1 sur le ROI à Béjaïa (Algérie) | XenonDz",
@@ -12,6 +13,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
-  return <About />;
+export default async function AboutPage() {
+  let team = [];
+  try {
+    const { data } = await supabase
+      .from("team_members")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true });
+    team = data || [];
+  } catch (err) {
+    console.error("Error fetching team on server:", err);
+  }
+
+  return <About initialTeam={team} />;
 }

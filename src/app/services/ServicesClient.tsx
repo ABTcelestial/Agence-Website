@@ -1,2 +1,6 @@
 'use client';
-export { Services as ServicesClient } from "@/pages-src/Services";
+import { Services } from "@/pages-src/Services";
+
+export function ServicesClient({ initialServices, initialComparisons }: { initialServices?: any[], initialComparisons?: any[] }) {
+  return <Services initialServices={initialServices} initialComparisons={initialComparisons} />;
+}

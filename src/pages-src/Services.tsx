@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Loader2, Plus } from "lucide-react";
-import { useServices } from "@/data/services";
+import { useServices, Service } from "@/data/services";
 import { useComparison } from "@/data/useComparison";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { SEOHead } from '../components/seo/SEOHead';
@@ -15,11 +15,11 @@ function formatPrice(price: number) {
   return price.toLocaleString("fr-DZ") + " DA";
 }
 
-export function Services() {
+export function Services({ initialServices, initialComparisons }: { initialServices?: Service[], initialComparisons?: any[] }) {
   const { t, lang: language } = useLanguage();
   const s = t.services;
-  const { services, loading } = useServices();
-  const { comparisons, loading: compLoading } = useComparison();
+  const { services, loading } = useServices(initialServices);
+  const { comparisons, loading: compLoading } = useComparison(initialComparisons);
 
   function getServiceTitle(service: typeof services[0]) {
     if (language === "en") return service.titleEn;

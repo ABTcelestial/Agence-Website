@@ -30,15 +30,32 @@ type Realisation = {
   gallery?: string[];
 };
 
-export function SoftwareDetail() {
+export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisation }) {
   const { id } = useParams();
   const { t, lang } = useLanguage();
-  const [software, setSoftware] = useState<Realisation | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [software, setSoftware] = useState<Realisation | null>(initialSoftware || null);
+  const [loading, setLoading] = useState(!initialSoftware);
   const [activeOs, setActiveOs] = useState<string>("Windows");
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
+    if (initialSoftware) {
+      setSoftware(initialSoftware);
+      const versions = initialSoftware.software_versions as SoftwareVersion[];
+      if (versions && versions.length > 0) {
+        const userAgent = typeof window !== "undefined" ? window.navigator.userAgent : "";
+        let defaultOs = versions[0].os;
+        
+        if (userAgent.includes("Win")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Windows")?.os || defaultOs;
+        else if (userAgent.includes("Mac")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "macOS")?.os || defaultOs;
+        else if (userAgent.includes("Linux")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Linux")?.os || defaultOs;
+        
+        setActiveOs(defaultOs);
+      }
+      setLoading(false);
+      return;
+    }
+
     async function fetchSoftware() {
       if (!id) return;
       const { data, error } = await supabase
@@ -53,7 +70,7 @@ export function SoftwareDetail() {
         // Set default OS if possible
         const versions = data.software_versions as SoftwareVersion[];
         if (versions && versions.length > 0) {
-          const userAgent = window.navigator.userAgent;
+          const userAgent = typeof window !== "undefined" ? window.navigator.userAgent : "";
           let defaultOs = versions[0].os;
           
           if (userAgent.includes("Win")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Windows")?.os || defaultOs;
@@ -66,7 +83,7 @@ export function SoftwareDetail() {
       setLoading(false);
     }
     fetchSoftware();
-  }, [id]);
+  }, [id, initialSoftware]);
 
   const images: string[] = [];
   if (software?.preview_url) {

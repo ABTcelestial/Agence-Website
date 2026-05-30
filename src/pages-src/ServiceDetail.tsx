@@ -6,8 +6,8 @@ import { SEOHead } from "../components/seo/SEOHead";
 import { ServiceDetailSchema } from "../components/seo/ServiceDetailSchema";
 import { BreadcrumbSchema } from "../components/seo/BreadcrumbSchema";
 import { ArrowLeft, CheckCircle2, Send, CheckCircle, Plus, Minus, Calculator, Package } from "lucide-react";
-import { useState } from "react";
-import { useServices } from "@/data/services";
+import { useState, useEffect } from "react";
+import { useServices, Service } from "@/data/services";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/lib/supabaseClient";
 
@@ -150,7 +150,7 @@ const SEO_CONTENT: Record<string, { fr?: React.ReactNode; en?: React.ReactNode; 
         <p>Nous analysons en profondeur la structure technique de votre site (WordPress lourd, site custom mal configuré, scripts tiers intrusifs). Nous intervenons sur les indicateurs de vitesse clés exigés par Google, notamment l'<strong>INP (Interaction to Next Paint)</strong> et le <strong>LCP (Largest Contentful Paint)</strong>. Nous compressons vos images sans perte de qualité, minifions les scripts JS/CSS et mettons en place des systèmes de mise en cache ultra-performants.</p>
         
         <h3 className="text-xl font-bold mt-8 mb-3 text-foreground" style={{ fontFamily: "var(--font-display)" }}>Augmentez vos Ventes en conservant le même Trafic (+40% de conversion)</h3>
-        <p>Augmenter le nombre de visites sur son site web coûte cher en publicité ou en temps. Optimiser la vitesse de chargement de vos pages existantes permet d'améliorer immédiatement l'expérience utilisateur et donc d'<strong>augmenter vos taux de conversion d'environ 40%</strong>, à trafic égal. C'est l'optimisation technique avec le meilleur retour sur investissement disponible.</p>
+        <p>Augmenter le number de visites sur son site web coûte cher en publicité ou en temps. Optimiser la vitesse de chargement de vos pages existantes permet d'améliorer immédiatement l'expérience utilisateur et donc d'<strong>augmenter vos taux de conversion d'environ 40%</strong>, à trafic égal. C'est l'optimisation technique avec le meilleur retour sur investissement disponible.</p>
         
         <h3 className="text-xl font-bold mt-8 mb-3 text-foreground" style={{ fontFamily: "var(--font-display)" }}>Rapport Comparatif Avant/Après Détaillé</h3>
         <p>Chaque audit de performance s'accompagne d'une mesure scientifique de la vitesse de vos pages et d'un rapport de livraison technique comparatif. Nous assurons la pérennité des optimisations pour que votre site conserve son excellente réactivité sur la durée, pour le confort de vos visiteurs.</p>
@@ -168,11 +168,11 @@ const SEO_CONTENT: Record<string, { fr?: React.ReactNode; en?: React.ReactNode; 
   }
 };
 
-export function ServiceDetail() {
+export function ServiceDetail({ initialService }: { initialService?: Service }) {
   const { slug } = useParams<{ slug: string }>();
   const { t, lang: language } = useLanguage();
-  const { services, loading } = useServices();
-  const service = services.find((s) => s.slug === slug)!;
+  const { services, loading: servicesLoading } = useServices(initialService ? [initialService] : undefined);
+  const service = initialService || services.find((s) => s.slug === slug)!;
 
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
   const [formData, setFormData] = useState({
@@ -184,6 +184,8 @@ export function ServiceDetail() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const loading = !service && servicesLoading;
 
   if (loading) return (
     <div className="flex items-center justify-center min-h-screen">
