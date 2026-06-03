@@ -12,10 +12,10 @@ export function useServices(initialServices?: Service[]) {
     initialServices && initialServices.length > 0 ? initialServices : []
   );
   const [addons, setAddons] = useState<ServiceAddon[]>([]);
-  const [loading, setLoading] = useState(initialServices && initialServices.length > 0 ? false : true);
+  const [loading, setLoading] = useState(initialServices && initialServices.length > 1 ? false : true);
 
   useEffect(() => {
-    if (initialServices && initialServices.length > 0) {
+    if (initialServices && initialServices.length > 1) {
       setLoading(false);
       return;
     }
