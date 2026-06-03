@@ -50,11 +50,11 @@ interface MemberSpec {
 const MEMBER_SPECS: Record<string, MemberSpec> = {
   "Rynas Kebdi": {
     skills: ["Création de Sites", "Automatisation", "IA & Processus"],
-    location: "Béjaïa / Alger"
+    location: "Béjaïa"
   },
   "Ryan AitBessai": {
     skills: ["Développement Web", "Performance", "Bases de données"],
-    location: "Alger"
+    location: "Béjaïa"
   },
   "Amar Bellabas": {
     skills: ["Design UI/UX", "Ergonomie", "Sécurité Web"],
