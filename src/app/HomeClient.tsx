@@ -24,22 +24,22 @@ export function HomeClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
           <div className="max-w-5xl mx-auto text-center">
 
-            {/* Status Ticker Bar — replaces generic badge */}
+            {/* Status Ticker Bar */}
             <div className="hero-animate-1 flex items-center justify-center gap-6 mb-10">
               <div className="flex items-center gap-2 text-[11px] font-medium text-muted-foreground/70">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
                 </span>
-                Sites livrés en 7–10 jours
+                {h.tickerDelivery}
               </div>
               <span className="text-border/60">·</span>
               <div className="text-[11px] font-medium text-muted-foreground/70">
-                React &amp; Next.js — zéro WordPress
+                {h.tickerTech}
               </div>
               <span className="text-border/60 hidden sm:block">·</span>
               <div className="hidden sm:block text-[11px] font-medium text-muted-foreground/70">
-                Béjaïa, Algérie
+                {h.tickerLocation}
               </div>
             </div>
 

@@ -38,6 +38,9 @@ export const translations = {
       heroTitle1: "Agence Digitale en Algérie :",
       heroTitle2: "Création de sites web &",
       heroTitleEm: "Automatisation",
+      tickerDelivery: "Sites livrés en 7–10 jours",
+      tickerTech: "React & Next.js — zéro WordPress",
+      tickerLocation: "Béjaïa, Algérie",
       heroDesc:
         "Agence web spécialisée en Algérie. Sites web ultra-rapides, e-commerce rentable et automatisation B2B pour trouver vos clients à votre place. L'excellence accessible aux entreprises algériennes ambitieuses.",
       heroCta: "Démarrer l'acquisition",
@@ -449,6 +452,9 @@ export const translations = {
       heroTitle1: "Digital Agency in Algeria:",
       heroTitle2: "Web Design &",
       heroTitleEm: "Automation",
+      tickerDelivery: "Sites delivered in 7–10 days",
+      tickerTech: "React & Next.js — zero WordPress",
+      tickerLocation: "Bejaia, Algeria",
       heroDesc:
         "Specialised web agency in Algeria. Modern websites, smart automations and e-commerce solutions that transform your business.",
       heroCta: "Start your project",
@@ -851,6 +857,9 @@ export const translations = {
       heroTitle1: "وكالة رقمية في الجزائر:",
       heroTitle2: "تصميم مواقع ويب و",
       heroTitleEm: "أتمتة",
+      tickerDelivery: "تسليم في 7–10 أيام",
+      tickerTech: "React & Next.js — بدون WordPress",
+      tickerLocation: "بجاية، الجزائر",
       heroDesc:
         "وكالة ويب متخصصة في الجزائر. مواقع ويب عصرية، أتمتة ذكية وحلول تجارة إلكترونية تُحوّل أعمالك.",
       heroCta: "ابدأ مشروعك",

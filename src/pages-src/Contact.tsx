@@ -7,6 +7,9 @@ import { supabase } from "@/lib/supabaseClient";
 import { SEOHead } from '../components/seo/SEOHead';
 import { BreadcrumbSchema, BREADCRUMBS } from '../components/seo/BreadcrumbSchema';
 
+const CONTACT_EMAIL = "xenondz.inc@gmail.com";
+const CONTACT_PHONES = ["+213 0794055836", "+213 0658834848"];
+
 export function Contact() {
   const { t } = useLanguage();
   const c = t.contact;
@@ -57,8 +60,8 @@ export function Contact() {
   const inputClass = "w-full px-4 py-2.5 bg-input-background border border-input rounded-lg text-sm focus:outline-none transition-all";
 
   const infoCards = [
-    { icon: <Mail size={20} style={{ color: "var(--primary)" }} />, title: c.emailTitle, lines: ["xenondz.inc@gmail.com", c.emailSub] },
-    { icon: <Phone size={20} style={{ color: "var(--primary)" }} />, title: c.phoneTitle, lines: ["+213 0794055836", "+213 0658834848", c.phoneSub] },
+    { icon: <Mail size={20} style={{ color: "var(--primary)" }} />, title: c.emailTitle, lines: [CONTACT_EMAIL, c.emailSub] },
+    { icon: <Phone size={20} style={{ color: "var(--primary)" }} />, title: c.phoneTitle, lines: [...CONTACT_PHONES, c.phoneSub] },
     { icon: <MapPin size={20} style={{ color: "var(--primary)" }} />, title: c.addressTitle, lines: ["Akbou, Bejaia, Algerie", c.addressSub] },
   ];
 
@@ -77,8 +80,8 @@ export function Contact() {
           "@type": "Organization",
           "@id": "https://xenondz.vercel.app/#organization",
           "name": "XenonDz",
-          "telephone": "+213-0794055836",
-          "email": "xenondz.inc@gmail.com"
+          "telephone": CONTACT_PHONES[0].replace(/\s/g, "-"),
+          "email": CONTACT_EMAIL
         }
       })}} />
       <div className="w-full">

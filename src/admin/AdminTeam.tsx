@@ -15,6 +15,8 @@ export type DbTeamMember = {
   github: string;
   linkedin: string;
   instagram: string;
+  skills: string[];
+  location: string;
   sort_order: number;
   is_active: boolean;
 };
@@ -27,6 +29,8 @@ type FormState = {
   github: string;
   linkedin: string;
   instagram: string;
+  skills: string;
+  location: string;
   is_active: boolean;
 };
 
@@ -36,6 +40,8 @@ const emptyForm: FormState = {
   bio_fr: "", bio_en: "", bio_ar: "",
   avatar_url: "",
   github: "", linkedin: "", instagram: "",
+  skills: "",
+  location: "Béjaïa",
   is_active: true,
 };
 
@@ -342,6 +348,25 @@ function MemberForm({ initial, onSave, onCancel }: {
           </div>
         </div>
 
+        {/* Localisation & Compétences */}
+        <div className="rounded-2xl p-6 space-y-4"
+          style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+          <h2 className="text-white/60 text-xs font-semibold uppercase tracking-widest">Profil public</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className={labelCls}>Ville / Localisation</label>
+              <input className={inputCls} value={form.location} onChange={e => set("location", e.target.value)}
+                placeholder="Béjaïa" />
+            </div>
+            <div>
+              <label className={labelCls}>Compétences (séparées par virgule)</label>
+              <input className={inputCls} value={form.skills} onChange={e => set("skills", e.target.value)}
+                placeholder="Création de Sites, Automatisation, IA" />
+              <p className="text-white/25 text-xs mt-1">Ex: Design UI/UX, Ergonomie, Sécurité Web</p>
+            </div>
+          </div>
+        </div>
+
         {/* Réseaux sociaux */}
         <div className="rounded-2xl p-6 space-y-4"
           style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
@@ -454,6 +479,8 @@ export function AdminTeam() {
       bio_fr: data.bio_fr, bio_en: data.bio_en, bio_ar: data.bio_ar,
       avatar_url: data.avatar_url,
       github: data.github, linkedin: data.linkedin, instagram: data.instagram,
+      skills: data.skills ? data.skills.split(",").map(s => s.trim()).filter(Boolean) : [],
+      location: data.location || "Algérie",
       is_active: data.is_active,
       updated_at: new Date().toISOString(),
     };
@@ -520,7 +547,7 @@ export function AdminTeam() {
                 index={i}
                 moveRow={moveRow}
                 onDrop={handleDrop}
-                onEdit={mem => setEditing({ ...mem })}
+                onEdit={mem => setEditing({ ...mem, skills: Array.isArray(mem.skills) ? mem.skills.join(", ") : (mem.skills || "") })}
                 onDelete={handleDelete}
                 onToggle={toggleActive}
                 deleting={deleting}

@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { About } from "@/pages-src/About";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseClient";
+import type { DbTeamMember } from "@/admin/AdminTeam";
+
+// Toujours rendu à la demande — aucun cache Next.js entre l'admin et le site
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "L'Agence Web N°1 sur le ROI à Béjaïa (Algérie) | XenonDz",
@@ -13,18 +17,41 @@ export const metadata: Metadata = {
   },
 };
 
+const ABOUT_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "À propos de XenonDz — Agence Digitale Algérienne",
+  "description": "XenonDz est une agence digitale fondée à Béjaïa, Algérie, spécialisée dans le développement Next.js, l'e-commerce et l'automatisation intelligente.",
+  "url": "https://xenondz.vercel.app/about",
+  "mainEntity": {
+    "@id": "https://xenondz.vercel.app/#organization"
+  }
+};
+
 export default async function AboutPage() {
-  let team = [];
+  let team: DbTeamMember[] = [];
   try {
-    const { data } = await supabase
+    const supabase = getSupabase();
+    const { data, error } = await supabase
       .from("team_members")
       .select("*")
       .eq("is_active", true)
       .order("sort_order", { ascending: true });
-    team = data || [];
+
+    if (!error && data && data.length > 0) {
+      team = data as DbTeamMember[];
+    }
   } catch (err) {
-    console.error("Error fetching team on server:", err);
+    console.error("[AboutPage] Erreur fetch équipe Supabase:", err);
   }
 
-  return <About initialTeam={team} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_SCHEMA) }}
+      />
+      <About initialTeam={team} />
+    </>
+  );
 }

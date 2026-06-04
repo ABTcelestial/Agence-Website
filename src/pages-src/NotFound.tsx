@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import { useLanguage } from "../i18n/LanguageContext";
 import { SEOHead } from "../components/seo/SEOHead";

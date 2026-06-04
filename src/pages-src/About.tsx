@@ -1,73 +1,61 @@
 'use client';
 
 import Link from "next/link";
-import { 
-  Target, Users, Lightbulb, Award, Github, Linkedin, Instagram, Loader2, 
+import {
+  Github, Linkedin, Instagram, Loader2,
   ShieldCheck, Zap, Cpu, History, Briefcase, MapPin
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseClient";
 import type { DbTeamMember } from "../admin/AdminTeam";
 import { SEOHead } from '../components/seo/SEOHead';
 import { BreadcrumbSchema, BREADCRUMBS } from '../components/seo/BreadcrumbSchema';
 
-/* ─── Static Fallback & Non-Technical Specs ─── */
+/* ─── Fallback statique (si Supabase est vide ou inaccessible) ─── */
 const STATIC_TEAM: DbTeamMember[] = [
   {
     id: "1", name: "Rynas Kebdi", sort_order: 0, is_active: true,
-    role_fr: "Directeur de l'Agence & Fondateur", role_en: "Agency Director & Founder", role_ar: "مدير الوكالة والمؤسس",
+    role_fr: "Directeur de l'Agence & Fondateur",
+    role_en: "Agency Director & Founder",
+    role_ar: "مدير الوكالة والمؤسس",
     bio_fr: "Spécialiste de la création de sites web performants et de l'intégration d'outils d'automatisation intelligente pour les entreprises.",
     bio_en: "Specialist in building high-performance websites and integrating intelligent automation tools for businesses.",
     bio_ar: "متخصص في إنشاء مواقع ويب عالية الأداء ودمج أدوات الأتمتة الذكية للمؤسسات.",
-    avatar_url: "", github: "https://github.com/sayniir",
+    avatar_url: "",
+    github: "https://github.com/sayniir",
     linkedin: "https://www.linkedin.com/in/rynas-kebdi-526b70364/",
     instagram: "https://www.instagram.com/xenon.dz",
+    skills: ["Création de Sites", "Automatisation", "IA & Processus"],
+    location: "Béjaïa",
   },
   {
     id: "2", name: "Ryan AitBessai", sort_order: 1, is_active: true,
-    role_fr: "Directeur Technique & Co-Fondateur", role_en: "Technical Director & Co-Founder", role_ar: "المدير التقني والمؤسس المشارك",
+    role_fr: "Directeur Technique & Co-Fondateur",
+    role_en: "Technical Director & Co-Founder",
+    role_ar: "المدير التقني والمؤسس المشارك",
     bio_fr: "Expert en architecture web et en optimisation des bases de données pour garantir des sites rapides et sécurisés.",
     bio_en: "Expert in web architecture and database optimization to guarantee fast and secure websites.",
     bio_ar: "خبير في هندسة الويب وتحسين قواعد البيانات لضمان مواقع سريعة وآمنة.",
     avatar_url: "", github: "", linkedin: "", instagram: "",
+    skills: ["Développement Web", "Performance", "Bases de données"],
+    location: "Béjaïa",
   },
   {
     id: "3", name: "Amar Bellabas", sort_order: 2, is_active: true,
-    role_fr: "Directeur de Création & Sécurité", role_en: "Creative & Security Director", role_ar: "المدير الإبداعي والأمني",
+    role_fr: "Directeur de Création & Sécurité",
+    role_en: "Creative & Security Director",
+    role_ar: "المدير الإبداعي والأمني",
     bio_fr: "Créateur d'interfaces sur mesure modernes (ergonomie UI/UX) et consultant en protection des données en ligne.",
     bio_en: "Designer of modern custom interfaces (UI/UX ergonomics) and consultant in online data protection.",
     bio_ar: "مصمم واجهات مخصصة وعصرية (UI/UX) ومستشار في حماية البيانات عبر الإنترنت.",
     avatar_url: "", github: "", linkedin: "", instagram: "",
+    skills: ["Design UI/UX", "Ergonomie", "Sécurité Web"],
+    location: "Béjaïa",
   },
 ];
 
-interface MemberSpec {
-  skills: string[];
-  location: string;
-}
-
-const MEMBER_SPECS: Record<string, MemberSpec> = {
-  "Rynas Kebdi": {
-    skills: ["Création de Sites", "Automatisation", "IA & Processus"],
-    location: "Béjaïa"
-  },
-  "Ryan AitBessai": {
-    skills: ["Développement Web", "Performance", "Bases de données"],
-    location: "Béjaïa"
-  },
-  "Amar Bellabas": {
-    skills: ["Design UI/UX", "Ergonomie", "Sécurité Web"],
-    location: "Béjaïa"
-  }
-};
-
-const DEFAULT_MEMBER_SPEC: MemberSpec = {
-  skills: ["Création de Sites", "Développement"],
-  location: "Algérie"
-};
-
-/* ─── Local Manifesto Translations (Pure Business Value, No Technical Jargon) ─── */
+/* ─── Textes du manifeste (traduits localement — pas de DB nécessaire) ─── */
 const MANIFESTO_TRANSLATIONS = {
   fr: {
     title: "Nos Engagements",
@@ -149,28 +137,36 @@ const MANIFESTO_TRANSLATIONS = {
   }
 };
 
+/* ─── Hook — Source unique : Supabase → fallback STATIC_TEAM ─── */
 function useTeam(initialTeam?: DbTeamMember[]) {
+  // Si la page serveur a déjà récupéré les données, on les utilise directement
   const [team, setTeam] = useState<DbTeamMember[]>(
     initialTeam && initialTeam.length > 0 ? initialTeam : []
   );
-  const [loading, setLoading] = useState(initialTeam && initialTeam.length > 0 ? false : true);
+  const [loading, setLoading] = useState(
+    initialTeam && initialTeam.length > 0 ? false : true
+  );
 
   useEffect(() => {
+    // Si on a déjà des données côté serveur, pas besoin de re-fetch
     if (initialTeam && initialTeam.length > 0) {
       setLoading(false);
       return;
     }
+    // Fallback client-side si le SSR a échoué (ex: réseau indisponible au build)
     async function fetchTeam() {
       try {
+        const supabase = getSupabase();
         const { data, error } = await supabase
           .from("team_members")
           .select("*")
           .eq("is_active", true)
           .order("sort_order", { ascending: true });
-        
+
         if (error) throw error;
         setTeam(data && data.length > 0 ? (data as DbTeamMember[]) : STATIC_TEAM);
-      } catch (err) {
+      } catch {
+        // Supabase inaccessible → données statiques de secours
         setTeam(STATIC_TEAM);
       } finally {
         setLoading(false);
@@ -182,12 +178,15 @@ function useTeam(initialTeam?: DbTeamMember[]) {
   return { team, loading };
 }
 
+/* ─── Composant principal ─── */
 export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
   const { t, lang: language } = useLanguage();
   const a = t.about;
   const { team, loading } = useTeam(initialTeam);
 
-  const manifesto = MANIFESTO_TRANSLATIONS[language as "fr" | "en" | "ar"] || MANIFESTO_TRANSLATIONS.fr;
+  const manifesto =
+    MANIFESTO_TRANSLATIONS[language as "fr" | "en" | "ar"] ||
+    MANIFESTO_TRANSLATIONS.fr;
 
   function getMemberRole(m: DbTeamMember) {
     if (language === "en") return m.role_en || m.role_fr;
@@ -202,33 +201,21 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
   }
 
   const initials = (name: string) =>
-    name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .slice(0, 2)
-      .toUpperCase();
+    name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+
+  // Normalise les skills : tableau depuis Supabase ou chaîne CSV (fallback)
+  const getSkills = (m: DbTeamMember): string[] => {
+    if (Array.isArray(m.skills) && m.skills.length > 0) return m.skills;
+    if (typeof m.skills === "string" && (m.skills as string).length > 0) {
+      return (m.skills as string).split(",").map((s: string) => s.trim()).filter(Boolean);
+    }
+    return ["Développement Web"];
+  };
 
   return (
     <>
       <SEOHead page="about" />
       <BreadcrumbSchema items={BREADCRUMBS.about} />
-      
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            "name": "À propos de XenonDz — Agence Digitale Algérienne",
-            "description": "XenonDz est une agence digitale fondée à Béjaïa, Algérie, spécialisée dans le développement Next.js, l'e-commerce et l'automatisation intelligente.",
-            "url": "https://xenondz.vercel.app/about",
-            "mainEntity": {
-              "@id": "https://xenondz.vercel.app/#organization"
-            }
-          })
-        }}
-      />
 
       <div className="w-full relative overflow-hidden bg-background">
         {/* Ambient Decorative Orbs */}
@@ -256,7 +243,7 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
           </div>
         </section>
 
-        {/* Clean, Non-Technical Grid for Agency Profile */}
+        {/* Section Équipe — données 100% Supabase */}
         <section className="py-24 relative border-b border-border/40 bg-background/50 backdrop-blur-3xl">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -274,17 +261,18 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                 {team.map((member) => {
-                  const spec = MEMBER_SPECS[member.name] || DEFAULT_MEMBER_SPEC;
+                  const skills = getSkills(member);
+                  const location = member.location || "Algérie";
                   return (
                     <div
                       key={member.id}
                       className="bg-card border border-border/80 rounded-2xl shadow-lg p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:border-accent/40"
                     >
                       <div>
-                        {/* Avatar and Location */}
+                        {/* Avatar et Localisation */}
                         <div className="flex items-center justify-between mb-5">
                           <div
-                            className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-sm shrink-0 border border-border/50"
+                            className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-sm shrink-0 border border-border/50 overflow-hidden"
                             style={{
                               background: "linear-gradient(135deg, rgba(26,26,110,0.06), rgba(201,168,76,0.06))",
                               color: "var(--primary)"
@@ -306,11 +294,11 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
 
                           <div className="flex items-center gap-1 text-xs text-muted-foreground bg-muted/50 px-2.5 py-1 rounded-full border border-border/30">
                             <MapPin size={12} className="text-accent" />
-                            {spec.location}
+                            {location}
                           </div>
                         </div>
 
-                        {/* Identity */}
+                        {/* Identité */}
                         <div className="space-y-1 mb-4">
                           <h3 className="text-base font-bold text-foreground font-sans">
                             {member.name}
@@ -326,11 +314,10 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
                         </p>
                       </div>
 
-                      {/* Expertise and Social Networks */}
+                      {/* Compétences et réseaux sociaux */}
                       <div>
-                        {/* Plain text expertise badges instead of code array */}
                         <div className="flex flex-wrap gap-1.5 mb-4">
-                          {spec.skills.map((skill) => (
+                          {skills.map((skill) => (
                             <span
                               key={skill}
                               className="inline-flex items-center gap-1 bg-muted px-2.5 py-1 rounded-md text-xs text-foreground font-medium font-sans border border-border/30"
@@ -341,12 +328,12 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
                           ))}
                         </div>
 
-                        {/* Simple Social Links */}
-                        {(member.github || member.linkedin || member.instagram || member.name === "Rynas Kebdi") && (
+                        {/* Liens réseaux sociaux */}
+                        {(member.github || member.linkedin || member.instagram) && (
                           <div className="flex items-center gap-2 pt-3 border-t border-border/50">
-                            {memberGithub(member) !== "#" && (
+                            {member.github && (
                               <a
-                                href={memberGithub(member)}
+                                href={member.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:bg-primary/10 hover:-translate-y-0.5 border border-border/60 bg-background"
@@ -355,9 +342,9 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
                                 <Github size={14} className="text-muted-foreground hover:text-foreground" />
                               </a>
                             )}
-                            {memberLinkedin(member) !== "#" && (
+                            {member.linkedin && (
                               <a
-                                href={memberLinkedin(member)}
+                                href={member.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:bg-primary/10 hover:-translate-y-0.5 border border-border/60 bg-background"
@@ -366,9 +353,9 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
                                 <Linkedin size={14} className="text-muted-foreground hover:text-foreground" />
                               </a>
                             )}
-                            {memberInstagram(member) !== "#" && (
+                            {member.instagram && (
                               <a
-                                href={memberInstagram(member)}
+                                href={member.instagram}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:bg-primary/10 hover:-translate-y-0.5 border border-border/60 bg-background"
@@ -388,7 +375,7 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
           </div>
         </section>
 
-        {/* Custom Manifesto Bento Section */}
+        {/* Section Manifeste */}
         <section className="py-24 bg-muted/30 relative border-b border-border/40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -427,7 +414,7 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
           </div>
         </section>
 
-        {/* Local Call to Action */}
+        {/* CTA */}
         <section className="cta-section py-24 relative z-0">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span className="section-label" style={{ color: "var(--accent-light, #f0d98a)", justifyContent: "center" }}>
@@ -453,20 +440,4 @@ export function About({ initialTeam }: { initialTeam?: DbTeamMember[] }) {
       </div>
     </>
   );
-}
-
-/* Helper functions for fallback safety */
-function memberGithub(m: DbTeamMember) {
-  if (m.name === "Rynas Kebdi") return "https://github.com/sayniir";
-  return m.github || "#";
-}
-
-function memberLinkedin(m: DbTeamMember) {
-  if (m.name === "Rynas Kebdi") return "https://www.linkedin.com/in/rynas-kebdi-526b70364/";
-  return m.linkedin || "#";
-}
-
-function memberInstagram(m: DbTeamMember) {
-  if (m.name === "Rynas Kebdi") return "https://www.instagram.com/xenon.dz";
-  return m.instagram || "#";
 }
