@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Loader2, Plus } from "lucide-react";
-import { useServices, Service } from "@/data/services";
+import { useServices, Service, getIconForSlug } from "@/data/services";
 import { useComparison } from "@/data/useComparison";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { SEOHead } from '../components/seo/SEOHead';
@@ -253,7 +253,7 @@ export function Services({ initialServices, initialComparisons }: { initialServi
                 <div className="flex items-start gap-4 mb-5">
                   <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                     style={{ background: "linear-gradient(135deg, rgba(26,26,110,0.08), rgba(26,26,110,0.03))" }}>
-                    {service.icon}
+                    {getIconForSlug(service.slug)}
                   </div>
                   <div>
                     <h3 className="cursor-default font-bold text-foreground" style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem" }}>

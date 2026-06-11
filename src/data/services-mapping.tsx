@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { Globe, ShoppingCart, Cog, Search, Smartphone, BarChart } from "lucide-react";
 import { type DbService, type DbAddon } from "../admin/supabaseClient";
@@ -11,7 +13,9 @@ export interface ServiceAddon {
 
 export interface Service {
   slug: string;
-  icon: React.ReactNode;
+  // NOTE: `icon` is intentionally NOT included here — it contains React elements which
+  // cannot be serialised across the Server → Client boundary in Next.js App Router.
+  // Use `getIconForSlug(service.slug)` in client-side JSX instead.
   title: string; titleEn: string; titleAr: string;
   description: string; descriptionEn: string; descriptionAr: string;
   longDescription: string; longDescriptionEn: string; longDescriptionAr: string;
@@ -33,7 +37,11 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   "audit-optimisation-performance": <BarChart size={36} style={{ color: "var(--primary)" }} />,
 };
 
-function getIcon(slug: string, emoji: string): React.ReactNode {
+/**
+ * Returns the React icon node for a service slug.
+ * Must only be called inside client components (not in server-side mapService).
+ */
+export function getIconForSlug(slug: string, emoji?: string): React.ReactNode {
   if (ICON_MAP[slug]) return ICON_MAP[slug];
   return <span style={{ fontSize: 32 }}>{emoji || "⚡"}</span>;
 }
@@ -47,6 +55,11 @@ export function mapAddon(db: DbAddon): ServiceAddon {
   };
 }
 
+/**
+ * Maps a raw Supabase DbService row to the serialisable Service type.
+ * Intentionally does NOT include any React elements so the result can be
+ * safely passed as a prop from a Server Component to a Client Component.
+ */
 export function mapService(db: DbService, allAddons: DbAddon[]): Service {
   const addonMap = Object.fromEntries(allAddons.map(a => [a.addon_key, a]));
   const addons: ServiceAddon[] = (db.addon_ids || []).map(k => addonMap[k]).filter(Boolean).map(mapAddon);
@@ -57,7 +70,6 @@ export function mapService(db: DbService, allAddons: DbAddon[]): Service {
   }));
   return {
     slug: db.slug,
-    icon: getIcon(db.slug, db.icon),
     title: db.title_fr, titleEn: db.title_en, titleAr: db.title_ar,
     description: db.description_fr, descriptionEn: db.description_en, descriptionAr: db.description_ar,
     longDescription: db.long_description_fr, longDescriptionEn: db.long_description_en, longDescriptionAr: db.long_description_ar,
