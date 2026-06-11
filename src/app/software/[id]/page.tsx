@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { SoftwareDetail } from "@/pages-src/SoftwareDetail";
 import { supabase } from "@/lib/supabaseClient";
 
+export const dynamic = "force-dynamic";
+
 interface Props { params: Promise<{ id: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

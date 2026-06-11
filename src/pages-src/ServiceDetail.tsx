@@ -7,7 +7,7 @@ import { ServiceDetailSchema } from "../components/seo/ServiceDetailSchema";
 import { BreadcrumbSchema } from "../components/seo/BreadcrumbSchema";
 import { ArrowLeft, CheckCircle2, Send, CheckCircle, Plus, Minus, Calculator, Package } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useServices, Service } from "@/data/services";
+import { useServices, Service, getIconForSlug } from "@/data/services";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/lib/supabaseClient";
 
@@ -768,7 +768,7 @@ export function ServiceDetail({ initialService }: { initialService?: Service }) 
                     style={{ padding: "1.25rem" }}>
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                       style={{ background: "linear-gradient(135deg, rgba(26,26,110,0.08), rgba(26,26,110,0.03))" }}>
-                      {s.icon}
+                      {getIconForSlug(s.slug)}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-foreground text-sm truncate">{sTitle}</p>

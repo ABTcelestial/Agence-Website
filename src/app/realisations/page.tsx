@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Realisations } from "@/pages-src/Realisations";
 import { supabase } from "@/lib/supabaseClient";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Portfolio : Ils ont multiplié leurs résultats avec nous | Réalisations XenonDz",
   description: "Découvrez les sites web, boutiques e-commerce et solutions logicielles livrés par XenonDz en Algérie.",
