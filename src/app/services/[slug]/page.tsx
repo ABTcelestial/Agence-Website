@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { supabase } from "@/lib/supabaseClient";
 import { ServiceDetailClient } from "./ServiceDetailClient";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +11,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const BASE_URL = "https://xenondz.vercel.app";
+  const BASE_URL = "https://xenondz.com";
 
   const { data: service } = await supabase
     .from("services")
@@ -52,5 +53,14 @@ export default async function ServiceDetailPage({ params }: Props) {
     console.error("Error fetching service details on server:", err);
   }
 
-  return <ServiceDetailClient initialService={service} />;
+  return (
+    <>
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: service?.title || slug, url: `/services/${slug}` },
+      ]} />
+      <ServiceDetailClient initialService={service} />
+    </>
+  );
 }

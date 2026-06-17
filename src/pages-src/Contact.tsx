@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
@@ -75,10 +75,10 @@ export function Contact() {
         "@type": "ContactPage",
         "name": "Contactez XenonDz — Devis Gratuit Algérie",
         "description": "Demandez un devis gratuit pour votre site web, boutique e-commerce ou solution d'automatisation. Réponse garantie sous 24h par l'équipe XenonDz à Béjaïa.",
-        "url": "https://xenondz.vercel.app/contact",
+        "url": "https://xenondz.com/contact",
         "mainEntity": {
           "@type": "Organization",
-          "@id": "https://xenondz.vercel.app/#organization",
+          "@id": "https://xenondz.com/#organization",
           "name": "XenonDz",
           "telephone": CONTACT_PHONES[0].replace(/\s/g, "-"),
           "email": CONTACT_EMAIL

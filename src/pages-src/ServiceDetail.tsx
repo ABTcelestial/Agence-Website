@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
@@ -448,7 +448,7 @@ export function ServiceDetail({ initialService }: { initialService?: Service }) 
       <SEOHead
         title={seoTitle}
         description={seoDesc}
-        canonical={`https://xenondz.vercel.app/services/${slug}`}
+        canonical={`https://xenondz.com/services/${slug}`}
       />
       <ServiceDetailSchema
         name={getServiceTitle()}

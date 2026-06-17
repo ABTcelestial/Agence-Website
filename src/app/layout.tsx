@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { OrganizationSchema } from "@/components/seo/OrganizationSchema";
+import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { PageTransitions } from "@/components/layout/PageTransitions";
 import AgencyChatbot from "@/components/AgencyChatbot";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://xenondz.vercel.app"),
+  metadataBase: new URL("https://xenondz.com"),
   title: {
     default: "Agence Digitale en Algérie : Sites Web & Automatisation Rentables | XenonDz",
     template: "%s | XenonDz",
@@ -61,6 +63,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <OrganizationSchema />
+          <LocalBusinessSchema />
           <LanguageProvider>
             <div className="min-h-screen flex flex-col overflow-x-hidden">
               <Header />
@@ -73,6 +76,7 @@ export default function RootLayout({
               <AgencyChatbot />
             </div>
           </LanguageProvider>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

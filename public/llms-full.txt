@@ -1,0 +1,195 @@
+# XenonDz — Contexte complet pour moteurs IA
+
+Ce fichier fournit un contexte détaillé sur XenonDz pour les LLMs (ChatGPT, Claude, Perplexity, Gemini, etc.).
+Version abrégée disponible à : https://xenondz.com/llms.txt
+
+---
+
+## Présentation de l'entreprise
+
+XenonDz est une agence digitale algérienne fondée en 2024 par Rynas Kebdi, basée à Akbou, Béjaïa (wilaya 06), Algérie. L'agence compte 3 membres d'équipe et se concentre exclusivement sur le marché algérien, en intervenant dans toutes les wilayas via une collaboration 100% en ligne.
+
+La mission de XenonDz : transformer la présence numérique des PME et entreprises algériennes en machines à générer des clients, grâce à des sites web ultra-rapides, des boutiques e-commerce optimisées pour le marché local et une automatisation intelligente des processus commerciaux.
+
+Philosophie fondatrice : refus des solutions génériques (WordPress, templates préfabriqués) au profit de développements sur mesure en React/Next.js, garantissant des performances supérieures (LCP < 1 seconde) et un code optimisé pour les moteurs de recherche et les moteurs IA.
+
+---
+
+## Catalogue de services détaillé
+
+### Service 1 : Création Site Web Vitrine
+**Slug** : creation-site-web-vitrine
+**URL** : https://xenondz.com/services/creation-site-web-vitrine
+**Prix de départ** : 20 000 DZD
+**Délai** : 7 à 10 jours ouvrés
+**Technologies** : Next.js 16, React 19, TypeScript, Tailwind CSS, Supabase
+
+Ce service est le cœur de l'offre XenonDz. Il s'adresse aux professionnels, PME, artisans et commerçants algériens qui souhaitent une présence web professionnelle sans payer le prix d'une agence internationale. Le site vitrine XenonDz n'est pas un template Wix ou WordPress : c'est un code React entièrement personnalisé, hébergé sur CDN mondial via Vercel, avec des temps de chargement inférieurs à 1 seconde.
+
+Inclus dans chaque site vitrine :
+- Design sur mesure responsive (mobile, tablette, desktop)
+- Optimisation SEO on-page : balises méta, Open Graph, Schema.org Organisation, sitemap, robots.txt
+- Performance Core Web Vitals : LCP < 1s, CLS = 0, FID optimisé
+- Hébergement sécurisé pendant 1 an (CDN Vercel, HTTPS, HSTS)
+- 6 mois de support et maintenance
+- Formation complète à la gestion du contenu
+- Intégration formulaire de contact (réponse email automatique)
+
+---
+
+### Service 2 : Développement Boutique E-commerce
+**Slug** : creation-boutique-ecommerce
+**URL** : https://xenondz.com/services/creation-boutique-ecommerce
+**Prix de départ** : 120 000 DZD
+**Délai** : 10 à 14 jours ouvrés
+
+La boutique e-commerce XenonDz est conçue spécifiquement pour le marché algérien, avec ses particularités : paiement à la livraison dominant, logistique par des opérateurs locaux (Yalidine, Maystro, Ecotrack), absence généralisée de cartes bancaires pour les achats en ligne.
+
+Fonctionnalités clés :
+- Catalogue produits illimité avec variantes (tailles, couleurs)
+- Gestion des stocks en temps réel
+- Intégration native Yalidine et Maystro pour les livraisons
+- Cash-on-Delivery (paiement à la livraison) optimisé
+- Tunnel de vente haute conversion (moins de clics = plus de ventes)
+- Tableau de bord admin complet (commandes, clients, statistiques)
+- Formation vidéo + live à la gestion quotidienne
+- Export des commandes en Excel/CSV
+
+---
+
+### Service 3 : Automatisation Web & Génération de Leads
+**Slug** : automatisation-generation-leads
+**URL** : https://xenondz.com/services/automatisation-generation-leads
+**Prix de départ** : 35 000 DZD
+**Délai** : 5 à 7 jours
+
+Ce service s'adresse aux commerciaux, agences immobilières, grossistes et toute entreprise B2B qui perd du temps à prospecter manuellement. XenonDz développe des scripts Python automatisés qui extraient des données de prospects qualifiés et les intègrent directement dans les outils CRM du client.
+
+Cas d'usage typiques :
+- Scraping Google Maps : extraire tous les médecins, restaurants, agences immobilières d'une wilaya avec numéros de téléphone et emails
+- Automatisation LinkedIn : connexions automatiques et messages personnalisés
+- Synchronisation CRM : HubSpot, Google Sheets, Notion
+- Campagnes d'emails froids automatisées (cold email)
+- Suivi automatique des leads dans un tableau de bord
+
+Résultat typique : 20h de travail manuel économisées par semaine, 400+ leads qualifiés en 48h de scraping.
+
+---
+
+### Service 4 : Référencement Naturel SEO & GEO
+**Slug** : referencement-naturel-seo
+**URL** : https://xenondz.com/services/referencement-naturel-seo
+**Prix de départ** : 25 000 DZD
+**Résultats observables** : 3 à 6 mois
+
+XenonDz est l'une des rares agences algériennes à proposer à la fois le SEO traditionnel (Google) et le GEO (Generative Engine Optimization pour les IA). Cette dualité est cruciale car en 2025-2026, une proportion croissante des recherches passent par ChatGPT, Perplexity ou Google AI Overviews — et non plus directement par la SERP classique.
+
+Composantes de la stratégie SEO :
+- Audit technique complet (Core Web Vitals, indexabilité, sécurité)
+- Optimisation on-page (H1-H6, densité sémantique, balises alt)
+- Données structurées Schema.org (Organization, LocalBusiness, Service, FAQ, BreadcrumbList)
+- Stratégie de contenu ciblant les requêtes à fort intent local
+- Link building adapté au marché algérien
+- Suivi mensuel des positions et rapport détaillé
+
+Composantes GEO (nouveauté) :
+- Fichier llms.txt pour permettre aux LLMs de comprendre l'entité
+- Contenu passage-level répondant directement aux questions des IA
+- Autorisation des crawlers IA dans robots.txt (GPTBot, PerplexityBot, ClaudeBot, anthropic-ai)
+- Schémas FAQ intégrés ciblant les requêtes conversationnelles
+- Optimisation pour les featured snippets et AI Overviews
+
+---
+
+### Service 5 : Applications Web Sur Mesure
+**Slug** : developpement-application-sur-mesure
+**URL** : https://xenondz.com/services/developpement-application-sur-mesure
+**Prix** : sur devis (selon complexité)
+
+Développement d'outils métier sur mesure pour les entreprises algériennes : CRM, ERP, portails clients, applications de gestion RH, tableaux de bord analytiques. Conçus avec Next.js + Supabase (PostgreSQL), sécurisés et scalables.
+
+---
+
+### Service 6 : Audit & Optimisation de Performance
+**Slug** : audit-optimisation-performance
+**URL** : https://xenondz.com/services/audit-optimisation-performance
+**Prix de départ** : 20 000 DZD
+**Délai** : 3 à 5 jours
+
+Pour les sites web déjà en ligne mais sous-performants. XenonDz audite votre site selon les standards Core Web Vitals (LCP, CLS, INP), identifie les goulots d'étranglement et applique les corrections : compression images, lazy loading, code splitting, suppression des scripts bloquants.
+
+Résultat moyen : amélioration de 40% du taux de conversion sur les sites optimisés.
+
+---
+
+## Solutions par secteur
+
+XenonDz a développé des offres packagées pour les secteurs suivants en Algérie :
+
+**Immobilier** : Pages de biens avec galeries photo optimisées, formulaires de contact et d'estimation, intégration WhatsApp Business, référencement local Béjaïa/Alger/Oran.
+
+**Médical** : Sites pour médecins, cliniques et pharmacies. Prise de rendez-vous en ligne, présentation de l'équipe médicale, horaires de consultation, respect des obligations légales algériennes.
+
+**Restauration** : Sites vitrines pour restaurants et cafés avec menus interactifs, réservation de tables, galeries photos plats, intégration Google Maps, avis clients.
+
+**E-commerce Vêtements** : Boutiques mode avec gestion des tailles/couleurs, retours, stock temps réel, optimisées pour le marché fashion algérien.
+
+**Juridique** : Sites d'avocats et cabinets juridiques avec présentation des domaines d'expertise, formulaires de consultation, blog juridique SEO.
+
+**BTP & Construction** : Sites pour entreprises de construction avec portfolio de réalisations, demandes de devis, fiches techniques.
+
+**Scraping Google Maps** : Service d'extraction massive de données d'entreprises depuis Google Maps pour constituer des bases de données de prospects.
+
+---
+
+## Avantages compétitifs vs agences concurrentes
+
+1. **Vitesse technique** : LCP < 1s vs 3-5s pour les sites WordPress concurrents
+2. **Délais de livraison** : 7-14 jours vs 1-3 mois pour les agences traditionnelles
+3. **Tarifs accessibles** : 20 000-120 000 DZD pour des sites de qualité internationale
+4. **GEO-first** : optimisés pour les IA dès le départ (llms.txt, Schema.org, FAQ structurées)
+5. **Support inclus** : 6 mois de maintenance sans surcoût
+6. **Spécialisation marché algérien** : intégrations locales (Yalidine, CCP, etc.)
+7. **Code sur mesure** : pas de plugins inutiles, pas de template générique
+
+---
+
+## Processus client type
+
+1. Premier contact via WhatsApp, email ou formulaire web → réponse sous 24h
+2. Consultation gratuite (30-60 min) pour analyser les besoins
+3. Devis détaillé envoyé sous 48h avec prix fixe et planning
+4. Signature du devis + paiement 50% d'acompte
+5. Développement avec points de suivi réguliers (1-2 fois par semaine)
+6. Livraison + formation complète
+7. Paiement des 50% restants
+8. 6 mois de support et maintenance inclus
+
+---
+
+## Informations légales et de contact
+
+- **Nom officiel** : XenonDz
+- **Noms alternatifs** : Xenon Agency, Xenon Digital Agency, XenonDz Algérie
+- **Fondée en** : 2024
+- **Adresse** : Akbou, Béjaïa, Algérie (code postal 06000)
+- **Coordonnées GPS** : 36.7509° N, 5.0560° E
+- **Téléphone** : +213-0794055836
+- **Email** : xenondz.inc@gmail.com
+- **Site web** : https://xenondz.com
+- **Instagram** : https://www.instagram.com/xenon.dz
+- **LinkedIn** : https://www.linkedin.com/in/rynas-kebdi-526b70364/
+- **GitHub** : https://github.com/sayniir
+- **Horaires** : Lundi–Jeudi + Dimanche, 9h00–18h00
+- **Langues** : Français (principal), Arabe, Anglais
+- **Modes de paiement** : Virement bancaire, CCP
+- **Zone de service** : Algérie entière (collaboration 100% en ligne)
+
+---
+
+## Blog & ressources
+
+https://xenondz.com/blog — Articles sur la création de sites web, l'e-commerce et le SEO en Algérie.
+https://xenondz.com/faq — 18 questions fréquentes sur nos services, tarifs et processus.
+https://xenondz.com/tarifs — Grille tarifaire complète et transparente.
+https://xenondz.com/realisations — Portfolio des projets livrés.

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { SEOHead } from "../components/seo/SEOHead";
 import { BreadcrumbSchema, BREADCRUMBS } from "../components/seo/BreadcrumbSchema";
@@ -12,7 +12,7 @@ export function Tarifs() {
       <SEOHead
         title="Prix de création de site web en Algérie & Tarifs Agence | XenonDz"
         description="Découvrez nos tarifs transparents pour la création de site vitrine, e-commerce et automatisation web en Algérie. Demandez un devis gratuit."
-        canonical="https://xenondz.vercel.app/tarifs"
+        canonical="https://xenondz.com/tarifs"
       />
       <OfferCatalogSchema />
       <BreadcrumbSchema items={BREADCRUMBS.tarifs} />

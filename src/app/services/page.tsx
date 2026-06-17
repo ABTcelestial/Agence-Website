@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { supabase } from "@/lib/supabaseClient";
 import { ServicesClient } from "./ServicesClient";
 import { mapService } from "@/data/services-mapping";
+import { BreadcrumbSchema, BREADCRUMBS } from "@/components/seo/BreadcrumbSchema";
 
 export const dynamic = "force-dynamic";
 
@@ -9,9 +10,9 @@ export const metadata: Metadata = {
   title: "Nos Solutions : Création de Site Web, E-commerce, Scraping en Algérie | XenonDz",
   description:
     "Ne laissez plus vos concurrents prendre vos clients sur Google. Découvrez nos solutions de création de sites rapides, e-commerce et automatisation en Algérie.",
-  alternates: { canonical: "https://xenondz.vercel.app/services" },
+  alternates: { canonical: "https://xenondz.com/services" },
   openGraph: {
-    url: "https://xenondz.vercel.app/services",
+    url: "https://xenondz.com/services",
     title: "Nos Solutions : Création de Site Web, E-commerce, Scraping en Algérie | XenonDz",
     description: "Ne laissez plus vos concurrents prendre vos clients sur Google.",
   },
@@ -35,5 +36,10 @@ export default async function ServicesPage() {
     console.error("Error fetching services page on server:", err);
   }
 
-  return <ServicesClient initialServices={services} initialComparisons={comparisons} />;
+  return (
+    <>
+      <BreadcrumbSchema items={BREADCRUMBS.services} />
+      <ServicesClient initialServices={services} initialComparisons={comparisons} />
+    </>
+  );
 }

@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { HomeClient } from "./HomeClient";
 
-const BASE_URL = "https://xenondz.vercel.app";
+const BASE_URL = "https://xenondz.com";
 
 export const metadata: Metadata = {
   title: "Agence Digitale en Algérie : Sites Web & Automatisation Rentables | XenonDz",

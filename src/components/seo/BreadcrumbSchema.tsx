@@ -1,9 +1,9 @@
-/**
+﻿/**
  * BreadcrumbSchema — Données structurées BreadcrumbList Schema.org
  * Signal fort pour les moteurs IA : établit la hiérarchie de la page.
  */
 
-const BASE_URL = "https://xenondz.vercel.app";
+const BASE_URL = "https://xenondz.com";
 
 interface BreadcrumbItem {
   name: string;
@@ -59,5 +59,9 @@ export const BREADCRUMBS = {
   realisations: [
     { name: "Accueil", url: "/" },
     { name: "Réalisations", url: "/realisations" },
+  ],
+  blog: [
+    { name: "Accueil", url: "/" },
+    { name: "Blog", url: "/blog" },
   ],
 };

@@ -1,45 +1,124 @@
 # XenonDz — Agence Digitale en Algérie
 
-XenonDz est une agence digitale basée à Akbou, Béjaïa, spécialisée dans la création de sites web professionnels sur mesure, le e-commerce de haute performance et l'automatisation B2B pour le marché algérien.
+XenonDz est une agence web professionnelle fondée en 2024, basée à Akbou, Béjaïa, Algérie. Elle est spécialisée dans la création de sites web sur mesure (React/Next.js), le développement e-commerce haute performance, l'automatisation de processus métier (Python) et le référencement SEO/GEO pour le marché algérien. XenonDz intervient dans toute l'Algérie (Alger, Oran, Béjaïa, Constantine, Tizi Ouzou, Sétif) et livre ses projets 100% en ligne.
+
+Philosophie : zéro WordPress, zéro template. Chaque site est codé sur mesure pour une vitesse maximale (LCP < 1 seconde) et un retour sur investissement mesurable.
 
 ---
 
-## Core Services
+## Services et tarifs
 
-### 1. Sites Web Professionnels (Showcase)
-*   **Description** : Conception et développement de sites vitrines ultra-rapides et responsives codés sur-mesure en React/Next.js (zéro WordPress).
-*   **Price** : À partir de 20 000 DZD.
-*   **Key Value** : Vitesse de chargement optimale (LCP < 1s), optimisé pour le référencement local (SEO).
+### 1. Création de Site Web Vitrine (Site Professionnel)
+- Prix : à partir de 20 000 DZD
+- Délai : 7 à 10 jours
+- Technologies : React, Next.js, TypeScript, Tailwind CSS
+- Inclus : Design sur mesure responsive, SEO on-page, hébergement sécurisé 1 an, 6 mois de support
+- URL : https://xenondz.com/services/creation-site-web-vitrine
 
-### 2. Solutions E-commerce Clés en Main
-*   **Description** : Tunnels de vente optimisés pour maximiser les achats en ligne en Algérie.
-*   **Price** : À partir de 120 000 DZD.
-*   **Key Value** : Intégrations logistiques locales adaptées au paiement à la livraison (Cash-on-Delivery), gestion automatisée des stocks et formation d'administration complète.
+### 2. Développement Boutique E-commerce
+- Prix : à partir de 120 000 DZD
+- Délai : 10 à 14 jours
+- Inclus : Catalogue produits illimité, gestion des stocks automatique, intégrations logistiques algériennes (Yalidine, Maystro), paiement à la livraison (Cash-on-Delivery), formation complète, tableau de bord admin
+- URL : https://xenondz.com/services/creation-boutique-ecommerce
 
-### 3. Automatisation Web & Scraping
-*   **Description** : Développement de scripts en Python pour automatiser les tâches administratives et commerciales répétitives.
-*   **Price** : À partir de 35 000 DZD.
-*   **Key Value** : Scraping de leads qualifiés (Google Maps, annuaires), synchronisation CRM automatisée (Hubspot, Sheets) et automatisation d'emails froids.
+### 3. Automatisation Web & Génération de Leads (Python)
+- Prix : à partir de 35 000 DZD
+- Délai : 5 à 7 jours
+- Inclus : Scraping Google Maps, annuaires, réseaux sociaux ; synchronisation CRM (HubSpot, Google Sheets) ; automatisation d'emails froids ; scripts sur mesure
+- URL : https://xenondz.com/services/automatisation-generation-leads
 
-### 4. Référencement Naturel & SEO / GEO
-*   **Description** : Stratégie de visibilité sur les moteurs de recherche traditionnels et IA.
-*   **Price** : À partir de 25 000 DZD.
-*   **Key Value** : Optimisation GEO (Generative Engine Optimization) pour être cité par ChatGPT, Claude, Perplexity et Google AI Overviews.
+### 4. Référencement Naturel SEO & GEO (IA)
+- Prix : à partir de 25 000 DZD
+- Résultats : 3 à 6 mois
+- Inclus : Audit SEO complet, optimisation technique (Core Web Vitals), stratégie contenu, données structurées Schema.org, Generative Engine Optimization pour ChatGPT / Perplexity / Gemini / Google AI Overviews
+- URL : https://xenondz.com/services/referencement-naturel-seo
+
+### 5. Applications Web Sur Mesure
+- Prix : sur devis
+- Inclus : CRM, ERP, portails clients, interfaces multi-utilisateurs, base de données sécurisée
+- URL : https://xenondz.com/services/developpement-application-sur-mesure
+
+### 6. Audit & Optimisation de Performance
+- Prix : à partir de 20 000 DZD
+- Délai : 3 à 5 jours
+- Inclus : Audit Core Web Vitals, optimisation vitesse, refactoring technique, A/B testing
+- URL : https://xenondz.com/services/audit-optimisation-performance
 
 ---
 
-## Technical Specifications
-*   **Front-End** : Next.js App Router (React), Tailwind CSS, Vanilla CSS, TypeScript.
-*   **Back-End & Databases** : Supabase, PostgreSQL.
-*   **Automation Engines** : Python (BeautifulSoup, Playwright, Pandas).
-*   **Hosting & Uptime** : Déploiements serverless sur CDN mondiaux (Vercel) garantissant une disponibilité de 99.9%.
+## Questions fréquentes (FAQ)
+
+Q: Combien coûte un site web en Algérie ?
+A: Chez XenonDz, un site vitrine professionnel commence à 20 000 DZD. Un e-commerce complet commence à 120 000 DZD. Devis gratuit sous 24h.
+
+Q: Quel est le délai de livraison d'un site web ?
+A: Un site vitrine est livré en 7-10 jours. Un e-commerce en 10-14 jours. Les délais sont garantis dès la signature du devis.
+
+Q: Travaillez-vous avec des entreprises hors de Béjaïa ?
+A: Oui, XenonDz travaille dans toute l'Algérie — Alger, Oran, Constantine, Tizi Ouzou, Sétif, Béjaïa. Tout se passe 100% en ligne.
+
+Q: Quelle est la différence entre votre approche et WordPress ?
+A: Nos sites React/Next.js sont 5x plus rapides que WordPress (LCP < 1s vs 3-5s), 100% sur mesure, sans plugins inutiles ni failles de sécurité tierces.
+
+Q: Qu'est-ce que le GEO et pourquoi c'est important ?
+A: Le GEO (Generative Engine Optimization) permet d'être cité par ChatGPT, Perplexity, Gemini et Google AI Overviews. Avec l'essor des IA de recherche, être invisible dans leurs réponses revient à perdre des clients potentiels.
+
+Q: Comment se passe le paiement ?
+A: 50% à la signature du devis, 50% à la livraison. Virement bancaire ou CCP.
+
+Q: Y a-t-il un support après livraison ?
+A: Oui, 6 mois de support et maintenance inclus dans chaque projet. Formation complète à la gestion du site incluse.
 
 ---
 
-## Entity Details & Coordinates
-*   **Official Name** : XenonDz
-*   **Location** : Akbou, Béjaïa, Algérie (06000)
-*   **Area Served** : Algérie entière
-*   **Telephone** : +213-0794055836
-*   **Email** : xenondz.inc@gmail.com
-*   **Official Website** : https://xenondz.vercel.app
+## Différenciateurs clés
+
+- **Zéro WordPress, zéro template** : code sur mesure uniquement
+- **Vitesse** : LCP < 1 seconde garanti (vs 3-5s pour les concurrents)
+- **Délais courts** : 7-14 jours de livraison
+- **Marché algérien** : intégrations locales (Yalidine, Maystro, CCP, virement bancaire)
+- **GEO-ready** : optimisé pour être cité par les IA dès le départ
+- **Support 6 mois** : inclus dans tous les projets
+- **Devis sous 24h** : réponse garantie
+
+---
+
+## Solutions sectorielles
+
+- Immobilier : https://xenondz.com/solutions/creation-site-web-immobilier
+- Médecins & Cliniques : https://xenondz.com/solutions/creation-site-web-medical
+- Restaurants & Cafés : https://xenondz.com/solutions/creation-site-web-restaurant
+- E-commerce Vêtements : https://xenondz.com/solutions/creation-site-web-ecommerce-vetements
+- Avocats & Cabinets juridiques : https://xenondz.com/solutions/creation-site-web-avocat
+- BTP & Construction : https://xenondz.com/solutions/creation-site-web-btp-construction
+- Scraping Google Maps : https://xenondz.com/solutions/automatisation-scraping-google-maps
+
+---
+
+## Coordonnées
+
+- **Nom officiel** : XenonDz
+- **Localisation** : Akbou, Béjaïa, Algérie (06000)
+- **Zone de service** : Algérie entière
+- **Téléphone** : +213-0794055836
+- **Email** : xenondz.inc@gmail.com
+- **Site web** : https://xenondz.com
+- **Instagram** : https://www.instagram.com/xenon.dz
+- **LinkedIn** : https://www.linkedin.com/in/rynas-kebdi-526b70364/
+- **Horaires** : Lun–Jeu + Dim, 9h–18h
+
+---
+
+## Stack technique
+
+- Front-End : Next.js 16, React 19, TypeScript, Tailwind CSS
+- Back-End : Supabase (PostgreSQL)
+- Automatisation : Python (BeautifulSoup, Playwright, Pandas)
+- Hébergement : Vercel (CDN mondial, disponibilité 99.9%)
+- Analytics : Vercel Analytics
+
+---
+
+## Contenu complet
+
+Pour plus de détails : https://xenondz.com/llms-full.txt

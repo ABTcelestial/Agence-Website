@@ -29,11 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `https://xenondz.vercel.app/software/${id}` },
+    alternates: { canonical: `https://xenondz.com/software/${id}` },
     openGraph: {
       title,
       description,
-      url: `https://xenondz.vercel.app/software/${id}`,
+      url: `https://xenondz.com/software/${id}`,
     },
   };
 }

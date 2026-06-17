@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from "next/link";
 import { FileText, MapPin, Mail, ShieldAlert, Award, Server } from "lucide-react";
@@ -44,7 +44,7 @@ export function MentionsLegales() {
                 </h2>
               </div>
               <p className="text-muted-foreground leading-relaxed text-sm">
-                Le présent site web, accessible à l'adresse <strong>https://xenondz.vercel.app</strong>, est édité par :
+                Le présent site web, accessible à l'adresse <strong>https://xenondz.com</strong>, est édité par :
               </p>
               <ul className="mt-4 space-y-3 text-sm text-foreground">
                 <li className="flex items-center gap-2">

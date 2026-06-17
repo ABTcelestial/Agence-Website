@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
@@ -6,7 +6,7 @@ import { SEOHead } from "../components/seo/SEOHead";
 import { BreadcrumbSchema } from "../components/seo/BreadcrumbSchema";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 
-const BASE_URL = "https://xenondz.vercel.app";
+const BASE_URL = "https://xenondz.com";
 
 interface NicheData {
   title: string;

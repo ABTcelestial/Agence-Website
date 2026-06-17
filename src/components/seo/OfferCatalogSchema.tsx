@@ -1,9 +1,9 @@
-/**
+﻿/**
  * OfferCatalogSchema — Données structurées OfferCatalog pour la page Tarifs
  * Permet aux IA de répondre directement à : "Quel est le prix d'un site web en Algérie ?"
  */
 
-const BASE_URL = "https://xenondz.vercel.app";
+const BASE_URL = "https://xenondz.com";
 
 export function OfferCatalogSchema() {
   const schema = {

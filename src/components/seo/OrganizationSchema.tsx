@@ -1,4 +1,4 @@
-const BASE_URL = "https://xenondz.vercel.app";
+﻿const BASE_URL = "https://xenondz.com";
 
 const orgSchema = {
   "@context": "https://schema.org",

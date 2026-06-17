@@ -1,5 +1,5 @@
-# XenonDz — robots.txt
-# https://xenondz.vercel.app/robots.txt
+﻿# XenonDz — robots.txt
+# https://xenondz.com/robots.txt
 
 User-agent: *
 # Pages publiques
@@ -44,4 +44,4 @@ Disallow: /*.json$
 Disallow: /*.env$
 
 # Sitemap
-Sitemap: https://xenondz.vercel.app/sitemap.xml
+Sitemap: https://xenondz.com/sitemap.xml

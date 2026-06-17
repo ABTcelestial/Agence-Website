@@ -1,10 +1,10 @@
-/**
+﻿/**
  * ServiceDetailSchema — Données structurées Service Schema.org par page de détail
  * Injecté sur chaque /services/:slug pour que les IA puissent citer le prix,
  * le délai et la description du service directement en réponse.
  */
 
-const BASE_URL = "https://xenondz.vercel.app";
+const BASE_URL = "https://xenondz.com";
 
 interface ServiceDetailSchemaProps {
   name: string;
