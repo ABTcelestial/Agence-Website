@@ -33,6 +33,7 @@ export function Header() {
     { name: t.nav.home, path: "/" },
     { name: t.nav.services, path: "/services" },
     { name: t.nav.realisations, path: "/realisations" },
+    { name: "Blog", path: "/blog" },
     { name: t.nav.about, path: "/about" },
     { name: t.nav.faq, path: "/faq" },
     { name: t.nav.contact, path: "/contact" },

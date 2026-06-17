@@ -7,6 +7,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { OrganizationSchema } from "@/components/seo/OrganizationSchema";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { ReviewSchema, XENONDZ_REVIEWS } from "@/components/seo/ReviewSchema";
 import { PageTransitions } from "@/components/layout/PageTransitions";
 import AgencyChatbot from "@/components/AgencyChatbot";
 
@@ -64,6 +65,7 @@ export default function RootLayout({
         >
           <OrganizationSchema />
           <LocalBusinessSchema />
+          <ReviewSchema reviews={XENONDZ_REVIEWS} />
           <LanguageProvider>
             <div className="min-h-screen flex flex-col overflow-x-hidden">
               <Header />
