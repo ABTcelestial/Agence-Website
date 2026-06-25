@@ -246,6 +246,7 @@ function RealisationForm({ initial, onSave, onCancel }: {
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [isDragOver, setIsDragOver] = useState(false);
+  const [versionUploadingIdx, setVersionUploadingIdx] = useState<number | null>(null);
   const [showPreview, setShowPreview] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -293,6 +294,28 @@ function RealisationForm({ initial, onSave, onCancel }: {
     const { data } = supabase.storage.from("realisations-previews").getPublicUrl(path);
     set("gallery", [...(form.gallery || []), data.publicUrl]);
     setUploading(false);
+  };
+
+  const uploadVersionFile = async (file: File, idx: number) => {
+    if (file.size > 300 * 1024 * 1024) {
+      setUploadError("Fichier trop lourd — 300 Mo maximum");
+      return;
+    }
+    setVersionUploadingIdx(idx);
+    setUploadError(null);
+    const ext = file.name.split(".").pop();
+    const path = `installers/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { error } = await supabase.storage.from("software-files").upload(path, file, { upsert: true });
+    if (error) {
+      setUploadError("Erreur d'upload. Vérifie que le bucket 'software-files' existe dans Supabase Storage.");
+      setVersionUploadingIdx(null);
+      return;
+    }
+    const { data } = supabase.storage.from("software-files").getPublicUrl(path);
+    const n = [...(form.software_versions || [])];
+    n[idx].file_url = data.publicUrl;
+    set("software_versions", n);
+    setVersionUploadingIdx(null);
   };
 
   const handleDrop = (e: React.DragEvent) => {
@@ -413,27 +436,72 @@ function RealisationForm({ initial, onSave, onCancel }: {
             <h2 className="text-white/60 text-xs font-semibold uppercase tracking-widest">Versions du Logiciel</h2>
             
             {form.software_versions?.map((ver, idx) => (
-              <div key={idx} className="flex flex-wrap items-center gap-2 p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
-                <input className={`${inputCls} flex-1 min-w-[120px]`} placeholder="Version (ex: v1.0)" value={ver.version} onChange={e => {
-                  const n = [...(form.software_versions || [])]; n[idx].version = e.target.value; set("software_versions", n);
-                }} />
-                <select className={`${inputCls} flex-1 min-w-[120px]`} value={ver.os} onChange={e => {
-                  const n = [...(form.software_versions || [])]; n[idx].os = e.target.value; set("software_versions", n);
-                }}>
-                  <option value="Windows" className="bg-[#1a1a2e]">Windows</option>
-                  <option value="macOS" className="bg-[#1a1a2e]">macOS</option>
-                  <option value="Linux" className="bg-[#1a1a2e]">Linux</option>
-                  <option value="Android" className="bg-[#1a1a2e]">Android</option>
-                  <option value="iOS" className="bg-[#1a1a2e]">iOS</option>
-                </select>
-                <input className={`${inputCls} flex-[2] min-w-[200px]`} placeholder="URL de téléchargement ou lien store" value={ver.file_url} onChange={e => {
-                  const n = [...(form.software_versions || [])]; n[idx].file_url = e.target.value; set("software_versions", n);
-                }} />
-                <button type="button" onClick={() => {
-                  const n = form.software_versions.filter((_, i) => i !== idx); set("software_versions", n);
-                }} className="p-2.5 rounded-xl text-red-400 hover:bg-red-500/10 transition-colors">
-                  <Trash2 size={16} />
-                </button>
+              <div key={idx} className="flex flex-col gap-2 p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
+                {/* Ligne 1 : version + OS + supprimer */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <input className={`${inputCls} flex-1 min-w-[120px]`} placeholder="Version (ex: v1.0)" value={ver.version} onChange={e => {
+                    const n = [...(form.software_versions || [])]; n[idx].version = e.target.value; set("software_versions", n);
+                  }} />
+                  <select className={`${inputCls} flex-1 min-w-[120px]`} value={ver.os} onChange={e => {
+                    const n = [...(form.software_versions || [])]; n[idx].os = e.target.value; set("software_versions", n);
+                  }}>
+                    <option value="Windows" className="bg-[#1a1a2e]">Windows</option>
+                    <option value="macOS" className="bg-[#1a1a2e]">macOS</option>
+                    <option value="Linux" className="bg-[#1a1a2e]">Linux</option>
+                    <option value="Android" className="bg-[#1a1a2e]">Android</option>
+                    <option value="iOS" className="bg-[#1a1a2e]">iOS</option>
+                  </select>
+                  <button type="button" onClick={() => {
+                    const n = form.software_versions.filter((_, i) => i !== idx); set("software_versions", n);
+                  }} className="p-2.5 rounded-xl text-red-400 hover:bg-red-500/10 transition-colors flex-shrink-0">
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+
+                {/* Ligne 2 : URL / fichier importé */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <input
+                    className={`${inputCls} flex-[2] min-w-[180px]`}
+                    placeholder="URL de téléchargement ou lien store"
+                    value={ver.file_url}
+                    onChange={e => {
+                      const n = [...(form.software_versions || [])]; n[idx].file_url = e.target.value; set("software_versions", n);
+                    }}
+                  />
+
+                  {/* Bouton d'import de fichier */}
+                  <label
+                    className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-medium cursor-pointer flex-shrink-0 transition-all"
+                    style={{
+                      background: versionUploadingIdx === idx ? "rgba(201,168,76,0.1)" : "rgba(255,255,255,0.05)",
+                      border: "1px dashed rgba(255,255,255,0.2)",
+                      color: versionUploadingIdx === idx ? "#c9a84c" : "rgba(255,255,255,0.6)",
+                    }}
+                  >
+                    {versionUploadingIdx === idx
+                      ? <><Loader2 size={14} className="animate-spin" /> Upload…</>
+                      : <><Upload size={14} /> Importer un fichier</>
+                    }
+                    <input
+                      type="file"
+                      className="hidden"
+                      accept=".apk,.ipa,.exe,.dmg,.zip,.aab,.msi"
+                      disabled={versionUploadingIdx !== null}
+                      onChange={e => {
+                        const f = e.target.files?.[0];
+                        if (f) uploadVersionFile(f, idx);
+                        e.target.value = "";
+                      }}
+                    />
+                  </label>
+
+                  {/* Indicateur : fichier déjà importé */}
+                  {ver.file_url && ver.file_url.includes("supabase") && versionUploadingIdx !== idx && (
+                    <span className="text-xs truncate max-w-[160px]" style={{ color: "rgba(134,239,172,0.8)" }}>
+                      ✓ {decodeURIComponent(ver.file_url.split("/").pop() || "")}
+                    </span>
+                  )}
+                </div>
               </div>
             ))}
             
