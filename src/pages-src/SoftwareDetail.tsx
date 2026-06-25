@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
-import { ArrowLeft, Download, Monitor, Terminal, Apple, Star, Globe, Loader2, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, Download, Monitor, Terminal, Apple, Smartphone, Star, Globe, Loader2, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { SEOHead } from "../components/seo/SEOHead";
 
 type SoftwareVersion = {
   version: string;
-  os: "Windows" | "macOS" | "Linux" | string;
+  os: "Windows" | "macOS" | "Linux" | "Android" | "iOS" | string;
   file_url: string;
 };
 
@@ -46,10 +46,12 @@ export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisat
         const userAgent = typeof window !== "undefined" ? window.navigator.userAgent : "";
         let defaultOs = versions[0].os;
         
-        if (userAgent.includes("Win")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Windows")?.os || defaultOs;
+        if (/iPhone|iPad|iPod/.test(userAgent)) defaultOs = versions.find((v: SoftwareVersion) => v.os === "iOS")?.os || defaultOs;
+        else if (userAgent.includes("Android")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Android")?.os || defaultOs;
+        else if (userAgent.includes("Win")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Windows")?.os || defaultOs;
         else if (userAgent.includes("Mac")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "macOS")?.os || defaultOs;
         else if (userAgent.includes("Linux")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Linux")?.os || defaultOs;
-        
+
         setActiveOs(defaultOs);
       }
       setLoading(false);
@@ -64,7 +66,7 @@ export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisat
         .eq("id", id)
         .eq("category", "Software")
         .single();
-        
+
       if (data) {
         setSoftware(data);
         // Set default OS if possible
@@ -72,8 +74,10 @@ export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisat
         if (versions && versions.length > 0) {
           const userAgent = typeof window !== "undefined" ? window.navigator.userAgent : "";
           let defaultOs = versions[0].os;
-          
-          if (userAgent.includes("Win")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Windows")?.os || defaultOs;
+
+          if (/iPhone|iPad|iPod/.test(userAgent)) defaultOs = versions.find((v: SoftwareVersion) => v.os === "iOS")?.os || defaultOs;
+          else if (userAgent.includes("Android")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Android")?.os || defaultOs;
+          else if (userAgent.includes("Win")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Windows")?.os || defaultOs;
           else if (userAgent.includes("Mac")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "macOS")?.os || defaultOs;
           else if (userAgent.includes("Linux")) defaultOs = versions.find((v: SoftwareVersion) => v.os === "Linux")?.os || defaultOs;
           
@@ -137,11 +141,14 @@ export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisat
       case "windows": return <Monitor size={18} />;
       case "macos": return <Apple size={18} />;
       case "linux": return <Terminal size={18} />;
+      case "android": return <Smartphone size={18} />;
+      case "ios": return <Apple size={18} />;
       default: return <Download size={18} />;
     }
   };
 
   const activeVersion = software.software_versions?.find(v => v.os === activeOs) || software.software_versions?.[0];
+  const isMobileOs = activeVersion?.os === "Android" || activeVersion?.os === "iOS";
 
   return (
     <>
@@ -260,8 +267,8 @@ export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisat
               <div className="rounded-3xl p-8 md:p-10 border border-border text-center"
                 style={{ background: "var(--card)", boxShadow: "0 20px 40px rgba(0,0,0,0.05)" }}>
                 
-                <h2 className="text-2xl font-bold text-foreground mb-3">Téléchargement</h2>
-                <p className="text-muted-foreground mb-8">Choisissez votre système d'exploitation pour télécharger la dernière version.</p>
+                <h2 className="text-2xl font-bold text-foreground mb-3">{isMobileOs ? "Installation" : "Téléchargement"}</h2>
+                <p className="text-muted-foreground mb-8">Choisissez votre plateforme pour {isMobileOs ? "installer" : "télécharger"} la dernière version.</p>
                 
                 {/* OS Tabs */}
                 <div className="flex flex-wrap justify-center gap-2 mb-10">
@@ -284,7 +291,7 @@ export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisat
                   <div className="max-w-md mx-auto p-6 rounded-2xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid var(--border)" }}>
                     <div className="flex justify-between items-center mb-6">
                       <div className="text-left">
-                        <div className="text-sm text-muted-foreground font-medium mb-1">Version pour {activeVersion.os}</div>
+                        <div className="text-sm text-muted-foreground font-medium mb-1">{isMobileOs ? "Application" : "Version"} pour {activeVersion.os}</div>
                         <div className="text-xl font-bold text-foreground">v{activeVersion.version || "1.0"}</div>
                       </div>
                       <div className="h-12 w-12 rounded-full flex items-center justify-center" style={{ background: "rgba(26,26,110,0.1)", color: "var(--primary)" }}>
@@ -297,7 +304,7 @@ export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisat
                         <CheckCircle2 size={16} className="text-green-500" /> Sécurisé et vérifié
                       </li>
                       <li className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <CheckCircle2 size={16} className="text-green-500" /> Installation rapide
+                        <CheckCircle2 size={16} className="text-green-500" /> {isMobileOs ? "Compatible avec votre appareil" : "Installation rapide"}
                       </li>
                       <li className="flex items-center gap-3 text-sm text-muted-foreground">
                         <CheckCircle2 size={16} className="text-green-500" /> Mises à jour incluses
@@ -311,7 +318,7 @@ export function SoftwareDetail({ initialSoftware }: { initialSoftware?: Realisat
                       className="btn-primary-pro w-full flex items-center justify-center py-4 rounded-xl text-base font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95"
                     >
                       <Download size={18} className="mr-2" />
-                      Télécharger pour {activeVersion.os}
+                      {isMobileOs ? "Installer" : "Télécharger"} pour {activeVersion.os}
                     </a>
                   </div>
                 )}

@@ -12,7 +12,7 @@ const ITEM_TYPE = "REALISATION_ROW";
 /* ─── Types ─── */
 export type SoftwareVersion = {
   version: string;
-  os: "Windows" | "macOS" | "Linux" | string;
+  os: "Windows" | "macOS" | "Linux" | "Android" | "iOS" | string;
   file_url: string;
 };
 
@@ -423,8 +423,10 @@ function RealisationForm({ initial, onSave, onCancel }: {
                   <option value="Windows" className="bg-[#1a1a2e]">Windows</option>
                   <option value="macOS" className="bg-[#1a1a2e]">macOS</option>
                   <option value="Linux" className="bg-[#1a1a2e]">Linux</option>
+                  <option value="Android" className="bg-[#1a1a2e]">Android</option>
+                  <option value="iOS" className="bg-[#1a1a2e]">iOS</option>
                 </select>
-                <input className={`${inputCls} flex-[2] min-w-[200px]`} placeholder="URL de téléchargement" value={ver.file_url} onChange={e => {
+                <input className={`${inputCls} flex-[2] min-w-[200px]`} placeholder="URL de téléchargement ou lien store" value={ver.file_url} onChange={e => {
                   const n = [...(form.software_versions || [])]; n[idx].file_url = e.target.value; set("software_versions", n);
                 }} />
                 <button type="button" onClick={() => {
