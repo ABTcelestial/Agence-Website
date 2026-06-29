@@ -11,7 +11,7 @@ import {
   Zap, Shield, Clock, ShoppingCart, Users, Database, TrendingUp, Search, Cpu, Wrench,
 } from "lucide-react";
 import { useState } from "react";
-import { useServices, Service, getIconForSlug } from "@/data/services";
+import { useServices, Service, getIconForSlug, services as allServices } from "@/data/services";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/lib/supabaseClient";
 
@@ -878,8 +878,8 @@ export function ServiceDetail({ initialService }: { initialService?: Service }) 
               <h2 className="text-foreground" style={{ fontSize: "1.75rem" }}>{lx.otherServices}</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {services
-                .filter((s) => s.slug !== slug)
+              {allServices
+                .filter((s) => s.slug !== service.slug)
                 .slice(0, 3)
                 .map((s, i) => {
                   const sTitle = language === "en" ? s.titleEn : language === "ar" ? s.titleAr : s.title;

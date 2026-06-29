@@ -83,141 +83,6 @@ export function HomeClient() {
       {/* ─── GRADIENT DIVIDER ─────────────────────────────────── */}
       <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-border/60 to-transparent" />
 
-      {/* ─── PACKS / PRICING ──────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-background relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Header */}
-          <div className="text-center max-w-2xl mx-auto mb-14 reveal">
-            <p className="section-label" style={{ justifyContent: "center" }}>{h.packsLabel}</p>
-            <h2 className="text-foreground text-3xl sm:text-5xl font-bold tracking-tight mt-2">{h.packsTitle}</h2>
-            <div className="gold-line gold-line-center" />
-            <p className="text-muted-foreground/70 mt-4 text-sm sm:text-base font-light">{h.packsSubtitle}</p>
-          </div>
-
-          {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-            {h.packs.map((pack, i) => (
-              <div
-                key={i}
-                className={`relative flex flex-col rounded-3xl p-7 sm:p-8 border transition-all duration-300 reveal ${
-                  pack.highlighted
-                    ? "border-accent/60 bg-card shadow-2xl shadow-accent/10 scale-[1.02]"
-                    : "border-border/50 bg-card/60 backdrop-blur-sm hover:border-accent/30"
-                }`}
-              >
-                {/* Popular badge */}
-                {pack.highlighted && (
-                  <div
-                    className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase text-white"
-                    style={{ background: "linear-gradient(135deg, var(--accent), #e8c870)" }}
-                  >
-                    {h.packBadgePopular}
-                  </div>
-                )}
-
-                {/* Pack name */}
-                <div className="mb-2">
-                  <span className="text-xs font-bold tracking-widest uppercase text-accent/80">{pack.name}</span>
-                </div>
-
-                {/* Price */}
-                <div className="mb-4">
-                  <span
-                    className="text-3xl sm:text-4xl font-extrabold"
-                    style={pack.highlighted ? {
-                      background: "linear-gradient(135deg, var(--accent), #e8c870)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    } : { color: "var(--foreground)" }}
-                  >
-                    {pack.price}
-                  </span>
-                </div>
-
-                {/* Tagline */}
-                <p className="text-sm text-muted-foreground/75 font-light leading-relaxed mb-7 flex-grow">
-                  {pack.tagline}
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
-                  {pack.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                      <Check
-                        size={14}
-                        className="mt-0.5 flex-shrink-0"
-                        style={{ color: "var(--accent)" }}
-                      />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <Link href={pack.href} className="w-full">
-                  <button
-                    className={`w-full py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
-                      pack.highlighted
-                        ? "btn-primary-pro text-white shadow-lg shadow-primary/20"
-                        : "border border-border/60 bg-background/40 text-foreground hover:border-accent/40 hover:bg-secondary/60"
-                    }`}
-                  >
-                    {pack.cta}
-                    <ArrowRight size={14} className={`inline ml-2 ${dir === "rtl" ? "rotate-180" : ""}`} />
-                  </button>
-                </Link>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ─── GRADIENT DIVIDER ─────────────────────────────────── */}
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-border/60 to-transparent" />
-
-      {/* ─── AEO TERMINAL WIDGET ──────────────────────────────── */}
-      <section className="py-12 bg-background/30 relative z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal glass-panel border border-border/40 rounded-3xl overflow-hidden shadow-2xl">
-            {/* Terminal top bar */}
-            <div className="px-5 py-3 border-b border-border/40 bg-secondary/30 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Terminal size={14} className="text-accent" />
-                <span className="text-[10px] font-bold text-muted-foreground/60 tracking-wider uppercase">
-                  xenon.engine // direct_index_status
-                </span>
-              </div>
-              <div className="flex gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/40" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500/20 border border-amber-500/40" />
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/40" />
-              </div>
-            </div>
-            <blockquote className="p-6 sm:p-8 bg-card/10">
-              <p className="text-foreground font-medium leading-relaxed mb-4 text-base sm:text-lg">
-                XenonDz est une agence digitale basée à Béjaïa, Algérie, spécialisée dans la création de sites web sur mesure, le développement e-commerce et l&apos;automatisation de processus métier.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                {[
-                  "Sites vitrines livrés en 7–10 jours, à partir de 20 000 DA",
-                  "Boutiques e-commerce adaptées au marché algérien (paiement à la livraison)",
-                  "Automatisation Python — scraping, génération de leads, CRM sync",
-                  "SEO on-page inclus dans chaque projet · 6 mois de support offerts",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2.5">
-                    <span className="text-accent font-bold mt-0.5">✓</span>
-                    <span className="text-sm text-muted-foreground">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
       {/* ─── POURQUOI NOUS — EDITORIAL NUMBERED LAYOUT ─────── */}
       <section className="py-20 sm:py-28 bg-background relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -452,6 +317,101 @@ export function HomeClient() {
           </div>
         </div>
       </section>
+
+      {/* ─── PACKS / PRICING ──────────────────────────────────── */}
+      <section className="py-20 sm:py-28 bg-background relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-14 reveal">
+            <p className="section-label" style={{ justifyContent: "center" }}>{h.packsLabel}</p>
+            <h2 className="text-foreground text-3xl sm:text-5xl font-bold tracking-tight mt-2">{h.packsTitle}</h2>
+            <div className="gold-line gold-line-center" />
+            <p className="text-muted-foreground/70 mt-4 text-sm sm:text-base font-light">{h.packsSubtitle}</p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {h.packs.map((pack, i) => (
+              <div
+                key={i}
+                className={`relative flex flex-col rounded-3xl p-7 sm:p-8 border transition-all duration-300 reveal ${
+                  pack.highlighted
+                    ? "border-accent/60 bg-card shadow-2xl shadow-accent/10 scale-[1.02]"
+                    : "border-border/50 bg-card/60 backdrop-blur-sm hover:border-accent/30"
+                }`}
+              >
+                {/* Popular badge */}
+                {pack.highlighted && (
+                  <div
+                    className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase text-white"
+                    style={{ background: "linear-gradient(135deg, var(--accent), #e8c870)" }}
+                  >
+                    {h.packBadgePopular}
+                  </div>
+                )}
+
+                {/* Pack name */}
+                <div className="mb-2">
+                  <span className="text-xs font-bold tracking-widest uppercase text-accent/80">{pack.name}</span>
+                </div>
+
+                {/* Price */}
+                <div className="mb-4">
+                  <span
+                    className="text-3xl sm:text-4xl font-extrabold"
+                    style={pack.highlighted ? {
+                      background: "linear-gradient(135deg, var(--accent), #e8c870)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    } : { color: "var(--foreground)" }}
+                  >
+                    {pack.price}
+                  </span>
+                </div>
+
+                {/* Tagline */}
+                <p className="text-sm text-muted-foreground/75 font-light leading-relaxed mb-7 flex-grow">
+                  {pack.tagline}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-3 mb-8">
+                  {pack.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                      <Check
+                        size={14}
+                        className="mt-0.5 flex-shrink-0"
+                        style={{ color: "var(--accent)" }}
+                      />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <Link href={pack.href} className="w-full">
+                  <button
+                    className={`w-full py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
+                      pack.highlighted
+                        ? "btn-primary-pro text-white shadow-lg shadow-primary/20"
+                        : "border border-border/60 bg-background/40 text-foreground hover:border-accent/40 hover:bg-secondary/60"
+                    }`}
+                  >
+                    {pack.cta}
+                    <ArrowRight size={14} className={`inline ml-2 ${dir === "rtl" ? "rotate-180" : ""}`} />
+                  </button>
+                </Link>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── GRADIENT DIVIDER ─────────────────────────────────── */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-border/60 to-transparent" />
 
       {/* ─── CTA ──────────────────────────────────────────────── */}
       <section className="cta-section py-28 relative overflow-hidden z-10 border-t border-white/5">
