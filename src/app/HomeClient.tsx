@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { ArrowRight, Zap, Shield, TrendingUp, CheckCircle2, Globe, Cog, Terminal, Cpu, Activity, Code2, Rocket, Sparkles } from "lucide-react";
+import { ArrowRight, Zap, Shield, TrendingUp, CheckCircle2, Globe, Cog, Terminal, Activity, Check } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function HomeClient() {
@@ -23,25 +23,6 @@ export function HomeClient() {
       <section className="relative overflow-hidden min-h-[92vh] flex items-center pt-8 pb-16 sm:py-24 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-
-            {/* Status Ticker Bar */}
-            <div className="hero-animate-1 flex items-center justify-center gap-6 mb-10">
-              <div className="flex items-center gap-2 text-[11px] font-medium text-muted-foreground/70">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-                </span>
-                {h.tickerDelivery}
-              </div>
-              <span className="text-border/60">·</span>
-              <div className="text-[11px] font-medium text-muted-foreground/70">
-                {h.tickerTech}
-              </div>
-              <span className="text-border/60 hidden sm:block">·</span>
-              <div className="hidden sm:block text-[11px] font-medium text-muted-foreground/70">
-                {h.tickerLocation}
-              </div>
-            </div>
 
             {/* Title */}
             <h1 className="hero-animate-2 hero-title-gradient mb-7 text-5xl sm:text-7xl font-extrabold text-foreground tracking-tight leading-[1.08]">
@@ -96,6 +77,101 @@ export function HomeClient() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ─── GRADIENT DIVIDER ─────────────────────────────────── */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-border/60 to-transparent" />
+
+      {/* ─── PACKS / PRICING ──────────────────────────────────── */}
+      <section className="py-20 sm:py-28 bg-background relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-14 reveal">
+            <p className="section-label" style={{ justifyContent: "center" }}>{h.packsLabel}</p>
+            <h2 className="text-foreground text-3xl sm:text-5xl font-bold tracking-tight mt-2">{h.packsTitle}</h2>
+            <div className="gold-line gold-line-center" />
+            <p className="text-muted-foreground/70 mt-4 text-sm sm:text-base font-light">{h.packsSubtitle}</p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {h.packs.map((pack, i) => (
+              <div
+                key={i}
+                className={`relative flex flex-col rounded-3xl p-7 sm:p-8 border transition-all duration-300 reveal ${
+                  pack.highlighted
+                    ? "border-accent/60 bg-card shadow-2xl shadow-accent/10 scale-[1.02]"
+                    : "border-border/50 bg-card/60 backdrop-blur-sm hover:border-accent/30"
+                }`}
+              >
+                {/* Popular badge */}
+                {pack.highlighted && (
+                  <div
+                    className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase text-white"
+                    style={{ background: "linear-gradient(135deg, var(--accent), #e8c870)" }}
+                  >
+                    {h.packBadgePopular}
+                  </div>
+                )}
+
+                {/* Pack name */}
+                <div className="mb-2">
+                  <span className="text-xs font-bold tracking-widest uppercase text-accent/80">{pack.name}</span>
+                </div>
+
+                {/* Price */}
+                <div className="mb-4">
+                  <span
+                    className="text-3xl sm:text-4xl font-extrabold"
+                    style={pack.highlighted ? {
+                      background: "linear-gradient(135deg, var(--accent), #e8c870)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    } : { color: "var(--foreground)" }}
+                  >
+                    {pack.price}
+                  </span>
+                </div>
+
+                {/* Tagline */}
+                <p className="text-sm text-muted-foreground/75 font-light leading-relaxed mb-7 flex-grow">
+                  {pack.tagline}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-3 mb-8">
+                  {pack.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                      <Check
+                        size={14}
+                        className="mt-0.5 flex-shrink-0"
+                        style={{ color: "var(--accent)" }}
+                      />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <Link href={pack.href} className="w-full">
+                  <button
+                    className={`w-full py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
+                      pack.highlighted
+                        ? "btn-primary-pro text-white shadow-lg shadow-primary/20"
+                        : "border border-border/60 bg-background/40 text-foreground hover:border-accent/40 hover:bg-secondary/60"
+                    }`}
+                  >
+                    {pack.cta}
+                    <ArrowRight size={14} className={`inline ml-2 ${dir === "rtl" ? "rotate-180" : ""}`} />
+                  </button>
+                </Link>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -371,76 +447,6 @@ export function HomeClient() {
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── PHILOSOPHY — BENTO GRID ──────────────────────────── */}
-      <section className="py-24 bg-background/40 relative z-10 border-t border-border/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 reveal">
-            <p className="section-label" style={{ justifyContent: "center" }}>{h.philosophyLabel}</p>
-            <h2 className="text-foreground text-3xl sm:text-5xl font-bold tracking-tight">{h.philosophyTitle}</h2>
-            <div className="gold-line gold-line-center" />
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            {/* Main text block */}
-            <div className="lg:col-span-7 card-pro relative overflow-hidden flex flex-col justify-between group border-border/50 hover:border-accent/30 transition-all duration-300 reveal">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/[0.02] to-transparent pointer-events-none" />
-              <div className="relative z-10">
-                <div className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center mb-6">
-                  <Code2 size={18} className="text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4 leading-snug">Architecture & Qualité</h3>
-                <p className="text-muted-foreground/80 leading-relaxed font-light text-sm sm:text-base">{h.philosophyDesc}</p>
-              </div>
-              {/* Watermark code block */}
-              <div className="opacity-10 dark:opacity-[0.06] absolute bottom-[-10%] right-[-10%] w-[300px] h-[200px] pointer-events-none select-none text-[10px] font-mono text-primary dark:text-accent border border-dashed border-border/50 rounded-xl p-4 transition-transform group-hover:translate-x-2 group-hover:-translate-y-1 duration-500 whitespace-pre">
-                {"class XenonEngine {\n  constructor() {\n    this.optimized = true;\n    this.cleanCode = true;\n    this.seoReady = true;\n  }\n  launch() {\n    return '🚀 Rentable';\n  }\n}"}
-              </div>
-            </div>
-
-            {/* Bento stack */}
-            <div className="lg:col-span-5 flex flex-col gap-6 reveal reveal-delay-1">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
-                <div className="p-6 rounded-3xl border border-border/60 bg-card/60 backdrop-blur-md flex flex-col justify-between hover:border-accent/30 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
-                    <Cpu size={15} className="text-indigo-500" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground text-sm mb-1.5">{h.philosophyCode}</h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed font-light">{h.philosophyCodeDesc}</p>
-                  </div>
-                </div>
-                <div className="p-6 rounded-3xl border border-border/60 bg-card/60 backdrop-blur-md flex flex-col justify-between hover:border-accent/30 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4">
-                    <Rocket size={15} className="text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground text-sm mb-1.5">{h.philosophySpeed}</h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed font-light">{h.philosophySpeedDesc}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Promise card */}
-              <div className="p-6 sm:p-8 rounded-3xl border border-accent/30 bg-gradient-to-r from-card to-accent/5 flex flex-col justify-between hover:border-accent/50 transition-colors relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-accent/10 rounded-full blur-2xl pointer-events-none" />
-                <div>
-                  <h3 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-                    <Sparkles size={16} className="text-accent" />
-                    {h.philosophyPromise}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-light mb-5">{h.philosophyPromiseDesc}</p>
-                </div>
-                <Link href="/contact">
-                  <button className="btn-primary-pro inline-flex items-center justify-center px-6 py-2.5 text-xs text-white rounded-lg font-semibold cursor-pointer">
-                    {h.philosophyCta}
-                  </button>
-                </Link>
               </div>
             </div>
           </div>
