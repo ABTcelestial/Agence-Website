@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       type: "article",
       publishedTime: post.publishDate,
-      authors: ["XenonDz"],
+      authors: [post.author],
       tags: post.tags,
     },
   };
@@ -43,20 +43,23 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": post.title,
     "description": post.description,
     "datePublished": post.publishDate,
     "dateModified": post.publishDate,
     "author": {
-      "@type": "Organization",
-      "name": "XenonDz",
-      "@id": `${BASE_URL}/#organization`,
+      "@type": "Person",
+      "@id": `${BASE_URL}/#rynas-kebdi`,
+      "name": "Rynas Kebdi",
+      "url": "https://www.linkedin.com/in/rynas-kebdi-526b70364/",
+      "sameAs": ["https://www.linkedin.com/in/rynas-kebdi-526b70364/"],
     },
     "publisher": {
       "@type": "Organization",
       "name": "XenonDz",
       "@id": `${BASE_URL}/#organization`,
+      "logo": { "@type": "ImageObject", "url": `${BASE_URL}/logos/logo-long-dark.svg` },
     },
     "url": `${BASE_URL}/blog/${post.slug}`,
     "mainEntityOfPage": `${BASE_URL}/blog/${post.slug}`,
@@ -98,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
             <div className="gold-line" />
             <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
-              <span>Par XenonDz</span>
+              <span>Par {post.author}</span>
               <span>·</span>
               <span>
                 {new Date(post.publishDate).toLocaleDateString("fr-DZ", {

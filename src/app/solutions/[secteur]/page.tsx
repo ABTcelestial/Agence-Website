@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Solutions } from "@/pages-src/Solutions";
+import { Solutions, NICHES } from "@/pages-src/Solutions";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { FAQSchema } from "@/components/seo/FAQSchema";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SolutionsPage({ params }: Props) {
   const { secteur } = await params;
   const name = secteur.replace(/-/g, " ");
+  const niche = NICHES[secteur];
+  const faqItems = niche?.faqs.map((f) => ({ question: f.q, answer: f.a })) ?? [];
+
   return (
     <>
       <BreadcrumbSchema items={[
@@ -26,6 +30,7 @@ export default async function SolutionsPage({ params }: Props) {
         { name: "Solutions", url: "/services" },
         { name: name, url: `/solutions/${secteur}` },
       ]} />
+      {faqItems.length > 0 && <FAQSchema items={faqItems} />}
       <Solutions />
     </>
   );

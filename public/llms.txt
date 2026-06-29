@@ -95,6 +95,18 @@ A: Oui, 6 mois de support et maintenance inclus dans chaque projet. Formation co
 
 ---
 
+## Fondateur
+
+Rynas Kebdi, 17 ans, Akbou (Béjaïa), Algérie.
+Autodidacte en développement web et automatisation depuis 2 ans (formations en ligne).
+LinkedIn : https://www.linkedin.com/in/rynas-kebdi-526b70364/
+GitHub : https://github.com/sayniir
+Philosophie : "Devenir libre en créant de la valeur pour les entreprises algériennes le plus tôt possible."
+Spécialisations : Next.js 16, React 19, TypeScript, Python, automatisations sur mesure, Supabase, SEO/GEO.
+XenonDz a été fondée en 2024, à 15 ans, avec l'ambition de proposer aux PME algériennes des outils digitaux de niveau mondial sans passer par des intermédiaires.
+
+---
+
 ## Coordonnées
 
 - **Nom officiel** : XenonDz

@@ -23,10 +23,22 @@ const ABOUT_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "À propos de XenonDz — Agence Digitale Algérienne",
-  "description": "XenonDz est une agence digitale fondée à Béjaïa, Algérie, spécialisée dans le développement Next.js, l'e-commerce et l'automatisation intelligente.",
+  "description": "XenonDz est une agence digitale algérienne fondée en 2024 à Akbou (Béjaïa) par Rynas Kebdi, développeur web autodidacte de 17 ans. Spécialisée dans la création de sites web sur mesure React/Next.js, l'automatisation sur demande et le développement d'applications pour les PME algériennes.",
   "url": "https://xenondz.com/about",
   "mainEntity": {
     "@id": "https://xenondz.com/#organization"
+  },
+  "about": {
+    "@type": "Person",
+    "@id": "https://xenondz.com/#rynas-kebdi",
+    "name": "Rynas Kebdi",
+    "jobTitle": "Fondateur & Développeur Web",
+    "description": "Rynas Kebdi est un développeur web algérien autodidacte de 17 ans, fondateur de XenonDz. Formé exclusivement via des ressources en ligne, il maîtrise Next.js, React, Python et l'automatisation de processus métier. Il a fondé XenonDz à Akbou (Béjaïa, Algérie) avec la conviction que les PME algériennes méritent des outils digitaux de niveau mondial.",
+    "url": "https://www.linkedin.com/in/rynas-kebdi-526b70364/",
+    "sameAs": [
+      "https://www.linkedin.com/in/rynas-kebdi-526b70364/",
+      "https://github.com/sayniir"
+    ]
   }
 };
 

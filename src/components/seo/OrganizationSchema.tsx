@@ -20,6 +20,23 @@ const orgSchema = {
       "telephone": "+213-0794055836",
       "email": "xenondz.inc@gmail.com",
       "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://xenondz.com/#rynas-kebdi",
+        "name": "Rynas Kebdi",
+        "jobTitle": "Fondateur & Développeur Web",
+        "url": "https://www.linkedin.com/in/rynas-kebdi-526b70364/",
+        "sameAs": [
+          "https://www.linkedin.com/in/rynas-kebdi-526b70364/",
+          "https://github.com/sayniir"
+        ]
+      },
+      "foundingLocation": {
+        "@type": "Place",
+        "addressLocality": "Akbou",
+        "addressRegion": "Béjaïa",
+        "addressCountry": "DZ"
+      },
       "numberOfEmployees": { "@type": "QuantitativeValue", "value": 3 },
       "address": {
         "@type": "PostalAddress",

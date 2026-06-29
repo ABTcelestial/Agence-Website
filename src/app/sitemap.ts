@@ -12,6 +12,14 @@ const STATIC_SERVICE_SLUGS = [
   "audit-optimisation-performance",
 ];
 
+const BLOG_CATEGORY_SLUGS = [
+  "tarifs-devis",
+  "e-commerce",
+  "seo-geo",
+  "automatisation",
+  "conseils",
+];
+
 const SOLUTION_SLUGS = [
   "creation-site-web-immobilier",
   "creation-site-web-medical",
@@ -69,5 +77,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages, ...solutionPages];
+  const blogCategoryPages: MetadataRoute.Sitemap = BLOG_CATEGORY_SLUGS.map((slug) => ({
+    url: `${BASE_URL}/blog/categorie/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...servicePages, ...solutionPages, ...blogCategoryPages];
 }

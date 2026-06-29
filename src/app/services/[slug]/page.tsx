@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { supabase } from "@/lib/supabaseClient";
 import { ServiceDetailClient } from "./ServiceDetailClient";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { ServiceDetailSchema } from "@/components/seo/ServiceDetailSchema";
 
 export const dynamic = "force-dynamic";
 
@@ -60,6 +61,17 @@ export default async function ServiceDetailPage({ params }: Props) {
         { name: "Services", url: "/services" },
         { name: service?.title || slug, url: `/services/${slug}` },
       ]} />
+      {service && (
+        <ServiceDetailSchema
+          name={service.title}
+          description={service.description}
+          slug={slug}
+          basePrice={service.basePrice}
+          priceSuffix={service.priceSuffix}
+          duration={service.duration}
+          features={service.features}
+        />
+      )}
       <ServiceDetailClient initialService={service} />
     </>
   );

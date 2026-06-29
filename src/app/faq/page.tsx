@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { FAQ } from "@/pages-src/FAQ";
+import { FAQSchema, EXAMPLE_FAQ_ITEMS } from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Questions sur la création de site web en Algérie & Prix | XenonDz FAQ",
@@ -13,5 +14,10 @@ export const metadata: Metadata = {
 };
 
 export default function FAQPage() {
-  return <FAQ />;
+  return (
+    <>
+      <FAQSchema items={EXAMPLE_FAQ_ITEMS} />
+      <FAQ />
+    </>
+  );
 }

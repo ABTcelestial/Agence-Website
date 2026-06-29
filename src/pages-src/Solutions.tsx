@@ -19,7 +19,7 @@ interface NicheData {
   faqs: { q: string; a: string }[];
 }
 
-const NICHES: Record<string, NicheData> = {
+export const NICHES: Record<string, NicheData> = {
   "creation-site-web-immobilier": {
     title: "Création de Site Web pour Agence Immobilière",
     seoTitle: "Site Web pour Agence Immobilière en Algérie | XenonDz",

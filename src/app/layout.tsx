@@ -47,6 +47,13 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  alternates: {
+    languages: {
+      "fr-DZ": "https://xenondz.com",
+      "ar-DZ": "https://xenondz.com",
+      "x-default": "https://xenondz.com",
+    },
+  },
 };
 
 export default function RootLayout({

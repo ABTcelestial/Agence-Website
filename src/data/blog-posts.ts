@@ -26,13 +26,13 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "prix-creation-site-web-algerie",
-    title: "Prix Création Site Web en Algérie en 2025 : Comparatif Complet",
+    title: "Prix Création Site Web en Algérie en 2026 : Comparatif Complet",
     description: "Combien coûte un site web professionnel en Algérie ? De 20 000 DZD à 120 000 DZD selon le type. Comparatif détaillé des tarifs freelance, agences et solutions DIY.",
     publishDate: "2026-05-10",
     readTime: "8 min",
     category: "Tarifs & Devis",
     tags: ["prix site web algérie", "tarif création site web", "combien coûte un site web", "agence web béjaïa"],
-    author: "XenonDz",
+    author: "Rynas Kebdi",
     intro: "La question revient dans toutes nos conversations commerciales : « Combien ça coûte un site web en Algérie ? ». La réponse honnête : entre 15 000 DZD pour un freelance débutant et 500 000 DZD pour une agence internationale. Mais le prix seul ne dit pas tout — la vitesse, la qualité du code et le support après livraison font toute la différence. Voici notre comparatif complet.",
     sections: [
       {
@@ -65,13 +65,13 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "comment-vendre-en-ligne-algerie",
-    title: "Comment Vendre en Ligne en Algérie : Guide Complet E-commerce 2025",
+    title: "Comment Vendre en Ligne en Algérie : Guide Complet E-commerce 2026",
     description: "Guide complet pour lancer votre boutique e-commerce en Algérie : logistique, paiement à la livraison, Yalidine, plateformes et stratégies de vente éprouvées.",
     publishDate: "2026-05-20",
     readTime: "10 min",
     category: "E-commerce",
     tags: ["vendre en ligne algérie", "e-commerce algérie", "boutique en ligne algérie", "yalidine intégration"],
-    author: "XenonDz",
+    author: "Rynas Kebdi",
     intro: "Le e-commerce en Algérie a explosé ces dernières années. Entre les contraintes bancaires, la prédominance du paiement à la livraison et la nécessité d'intégrer des transporteurs locaux (Yalidine, Maystro), lancer une boutique en ligne en Algérie nécessite une approche différente des marchés occidentaux. Ce guide vous donne toutes les clés pour réussir.",
     sections: [
       {
@@ -104,14 +104,14 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "seo-vs-geo-optimiser-google-et-ia",
-    title: "SEO vs GEO : Comment Optimiser pour Google ET les IA en 2025",
+    title: "SEO vs GEO : Comment Optimiser pour Google ET les IA en 2026",
     description: "La différence entre SEO classique et GEO (Generative Engine Optimization). Comment être visible sur Google ET dans les réponses de ChatGPT, Perplexity, Gemini et Google AI Overviews.",
     publishDate: "2026-06-01",
     readTime: "9 min",
     category: "SEO & GEO",
     tags: ["SEO Algérie", "GEO generative engine optimization", "chatgpt référencement", "google ai overviews", "perplexity seo"],
-    author: "XenonDz",
-    intro: "En 2025, une nouvelle bataille se joue pour la visibilité en ligne. Au-delà de Google, des millions d'utilisateurs formulent désormais leurs questions à ChatGPT, Perplexity, Gemini ou utilisent Google AI Overviews. Si votre entreprise n'est pas citée dans ces réponses, vous perdez des clients que vous ne verrez jamais. Voici comment dominer les deux fronts.",
+    author: "Rynas Kebdi",
+    intro: "En 2026, une nouvelle bataille se joue pour la visibilité en ligne. Au-delà de Google, des millions d'utilisateurs formulent désormais leurs questions à ChatGPT, Perplexity, Gemini ou utilisent Google AI Overviews. Si votre entreprise n'est pas citée dans ces réponses, vous perdez des clients que vous ne verrez jamais. Voici comment dominer les deux fronts.",
     sections: [
       {
         heading: "Qu'est-ce que le GEO et pourquoi est-ce différent du SEO ?",
@@ -149,7 +149,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "7 min",
     category: "Automatisation",
     tags: ["automatisation python algérie", "scraping google maps", "génération leads algérie", "prospection automatique"],
-    author: "XenonDz",
+    author: "Rynas Kebdi",
     intro: "Un commercial algérien passe en moyenne 20 heures par semaine à des tâches répétitives : chercher des prospects sur Google Maps, copier-coller des numéros de téléphone, envoyer des emails un par un. Avec Python, ces 20 heures deviennent 2 heures de supervision. Voici comment nous aidons les entreprises algériennes à automatiser leur prospection.",
     sections: [
       {
@@ -184,7 +184,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "6 min",
     category: "Conseils",
     tags: ["agence web algérie", "choisir agence web", "meilleure agence web béjaïa", "développeur web algérie"],
-    author: "XenonDz",
+    author: "Rynas Kebdi",
     intro: "Choisir une agence web en Algérie peut être un parcours du combattant : promesses non tenues, sites livrés en retard, support inexistant après livraison, prix qui explosent en cours de projet. Voici les 10 critères que nous recommandons pour faire le bon choix — en toute transparence, même s'ils s'appliquent à XenonDz.",
     sections: [
       {
@@ -234,6 +234,116 @@ export const BLOG_POSTS: BlogPost[] = [
       { question: "Que faire si l'agence ne livre pas dans les délais ?", answer: "Cela dépend du contrat. Un bon contrat prévoit des pénalités de retard ou au minimum un droit de résiliation avec remboursement partiel. Discutez de ces points avant de signer." },
     ],
     cta: "Demandez un devis XenonDz — transparent et fixe",
+  },
+  {
+    slug: "automatisation-whatsapp-business-algerie",
+    title: "Automatiser WhatsApp Business pour une Entreprise Algérienne en 2026",
+    description: "Oui, il est possible d'automatiser WhatsApp Business en Algérie avec l'API officielle Meta. Confirmations de commande, rappels, réponses automatiques — à partir de 35 000 DZD.",
+    publishDate: "2026-06-20",
+    readTime: "7 min",
+    category: "Automatisation",
+    tags: ["automatisation whatsapp algérie", "whatsapp business bot", "api whatsapp algérie", "automatisation pme algérie"],
+    author: "Rynas Kebdi",
+    intro: "Oui, il est possible d'automatiser WhatsApp Business pour une entreprise algérienne. XenonDz utilise l'API WhatsApp Cloud officielle (Meta) couplée à Python pour envoyer automatiquement des confirmations de commande, des rappels de rendez-vous et des réponses aux messages clients — sans intervention humaine. Le coût de mise en place commence à 35 000 DZD avec un délai de livraison de 5 à 7 jours.",
+    sections: [
+      {
+        heading: "Peut-on automatiser WhatsApp Business en Algérie ?",
+        content: "Oui, grâce à l'API officielle WhatsApp Cloud de Meta, il est légalement possible d'automatiser les messages WhatsApp pour une entreprise algérienne. Cette API permet d'envoyer des messages personnalisés à grande échelle : confirmations de commande, rappels de rendez-vous, notifications de livraison et réponses automatiques aux demandes courantes. Contrairement aux outils non officiels (Baileys, WaBotify) qui risquent le bannissement définitif du numéro, l'API officielle est stable et conforme aux conditions Meta. Pour y accéder, votre entreprise doit disposer d'un compte Meta Business vérifié et d'un numéro de téléphone dédié. XenonDz gère l'intégralité de la configuration : création du compte Meta Business, vérification du numéro, développement des templates de messages et connexion à votre système existant (site web, CRM, boutique e-commerce). La mise en place prend 5 à 7 jours ouvrables.",
+      },
+      {
+        heading: "Quels types de messages peut-on envoyer automatiquement ?",
+        content: "L'API WhatsApp Cloud permet d'automatiser plusieurs catégories de messages pour les entreprises algériennes :\n\n- **Confirmations de commande** : dès qu'une commande est passée sur votre boutique, le client reçoit automatiquement un message avec le récapitulatif et le délai de livraison estimé\n- **Rappels de rendez-vous** : pour les médecins, dentistes, coachs et prestataires de services — rappel automatique 24h et 1h avant le rendez-vous\n- **Notifications de livraison** : statut du colis en temps réel via intégration Yalidine ou Maystro\n- **Réponses automatiques** : FAQ instantanée pour les questions fréquentes (horaires, prix, disponibilité)\n- **Relance panier abandonné** : message automatique si un client n'a pas finalisé sa commande\n\nTous ces messages utilisent des templates approuvés par Meta, garantissant la délivrabilité et la conformité.",
+      },
+      {
+        heading: "Comment connecter WhatsApp à son site web ou CRM ?",
+        content: "La connexion entre WhatsApp Business API et votre système existant se fait via des webhooks et des appels API REST. XenonDz développe ce pont technique selon votre stack :\n\n- **Site e-commerce sur mesure** (développé par XenonDz) : intégration native directe, déclenchement automatique lors des événements commande/paiement\n- **Google Sheets comme CRM** : le script Python surveille les nouvelles lignes et déclenche les messages WhatsApp correspondants\n- **HubSpot / Airtable** : intégration via Zapier ou Make (anciennement Integromat) si aucun développement sur mesure n'est souhaité\n- **Système de gestion maison** : développement d'un connecteur API adapté\n\nLe délai d'intégration dépend de la complexité de votre système existant. Pour un site e-commerce standard, compter 3 à 5 jours supplémentaires.",
+      },
+      {
+        heading: "Combien coûte une automatisation WhatsApp pour une PME algérienne ?",
+        content: "Le coût d'une automatisation WhatsApp Business pour une PME algérienne dépend de la complexité des scénarios à automatiser.\n\n| Scénario | Prix estimé | Délai |\n|----------|-------------|-------|\n| Réponse automatique simple (FAQ) | 15 000 DZD | 2-3 jours |\n| Confirmations de commande e-commerce | 25 000 DZD | 3-4 jours |\n| Rappels de rendez-vous | 20 000 DZD | 3-4 jours |\n| Système complet (multi-scénarios) | 35 000-60 000 DZD | 5-7 jours |\n\nÀ ces coûts de développement s'ajoutent les frais Meta : l'API WhatsApp Cloud est gratuite jusqu'à 1 000 conversations d'entreprise par mois. Au-delà, le coût est d'environ 0,05-0,08 USD par conversation selon le type de message.",
+      },
+    ],
+    faq: [
+      { question: "Faut-il un numéro de téléphone algérien pour l'API WhatsApp ?", answer: "Non, n'importe quel numéro peut être utilisé, y compris un numéro virtuel. Cependant, un numéro algérien rassure davantage les clients locaux. Le numéro ne doit pas être déjà actif sur WhatsApp personnel — il sera migré vers l'API Business." },
+      { question: "L'API WhatsApp fonctionne-t-elle avec les connexions internet algériennes ?", answer: "Oui, l'API WhatsApp Cloud (hébergée par Meta sur ses propres serveurs) est accessible depuis l'Algérie sans restriction. Le script Python que nous développons tourne sur un serveur VPS ou directement sur Vercel, accessible 24h/24." },
+      { question: "Combien de messages peut-on envoyer par jour ?", answer: "Avec un compte Business standard, la limite commence à 1 000 contacts uniques par jour et monte progressivement selon votre historique de qualité. Pour les PME algériennes standard, cette limite est largement suffisante." },
+    ],
+    cta: "Automatisez WhatsApp pour votre entreprise — devis sous 24h",
+  },
+  {
+    slug: "automatisation-facturation-pme-algerie",
+    title: "Automatiser la Facturation pour une PME Algérienne : Guide Complet 2026",
+    description: "Automatiser la facturation en Algérie permet d'éliminer 5 à 20h de travail manuel par semaine. XenonDz développe des systèmes sur mesure en Python : factures PDF, envoi WhatsApp, suivi CCP. À partir de 35 000 DZD.",
+    publishDate: "2026-06-22",
+    readTime: "6 min",
+    category: "Automatisation",
+    tags: ["automatisation facturation algérie", "logiciel facturation algérie", "facturation automatique pme", "gestion comptable algérie"],
+    author: "Rynas Kebdi",
+    intro: "Automatiser la facturation pour une PME algérienne permet d'éliminer entre 5 et 20 heures de travail manuel par semaine. XenonDz développe des systèmes sur mesure en Python qui génèrent automatiquement les factures PDF, les envoient par email ou WhatsApp et suivent les paiements — adaptés aux modes de règlement algériens (CCP, virement bancaire, espèces). Le coût commence à 35 000 DZD avec un délai de 5 à 7 jours.",
+    sections: [
+      {
+        heading: "Pourquoi automatiser la facturation en Algérie ?",
+        content: "La gestion manuelle de la facturation coûte cher en temps et en erreurs. Pour une PME algérienne traitant 30 à 50 factures par mois, les tâches manuelles représentent facilement 15 heures de travail : création de chaque facture dans Word ou Excel, impression, envoi par WhatsApp ou email, relance des impayés, mise à jour du tableau de suivi. Un système d'automatisation réduit ce temps à moins de 2 heures de supervision mensuelle. Les erreurs de saisie — mauvais montant, mauvais client, numéro de facture dupliqué — sont éliminées. Le suivi des paiements devient automatique : le système détecte les factures impayées et envoie des rappels sans intervention humaine. Pour les entreprises soumises à la TVA, l'automatisation garantit également la conformité des mentions légales obligatoires sur chaque document.",
+      },
+      {
+        heading: "Quelles tâches de facturation peut-on automatiser ?",
+        content: "Un système de facturation automatisé développé par XenonDz couvre l'ensemble du cycle de facturation :\n\n- **Génération automatique** : création du PDF avec logo, coordonnées, numéro séquentiel, calcul automatique TVA (19% en Algérie), mentions légales conformes\n- **Envoi automatique** : transmission par WhatsApp Business API ou email dès la validation d'une commande ou prestation\n- **Suivi des paiements** : tableau de bord en temps réel avec statut (émise, envoyée, payée, en retard)\n- **Relances automatiques** : rappel J+15 et J+30 pour les factures impayées\n- **Archivage** : stockage organisé des PDFs sur Google Drive ou Supabase avec recherche par client, date ou montant\n- **Exports comptables** : génération automatique de tableaux Excel mensuels pour le comptable",
+      },
+      {
+        heading: "Comment adapter la facturation aux modes de paiement algériens ?",
+        content: "La facturation automatisée pour les PME algériennes doit gérer les spécificités locales que les logiciels internationaux ignorent :\n\n- **Paiement CCP** : le système peut générer les références de virement CCP et les inclure automatiquement dans la facture\n- **Paiement en espèces** : génération d'un reçu de paiement en espèces avec signature numérique optionnelle\n- **Acomptes partiels** : gestion des paiements en plusieurs tranches (50% à la commande, 50% à la livraison) avec suivi du solde restant\n- **Devis → Facture** : transformation automatique d'un devis accepté en facture définitive sans ressaisie\n- **Factures en arabe et en français** : génération bilingue selon les préférences du client\n\nXenonDz adapte chaque système aux habitudes de paiement spécifiques de votre secteur.",
+      },
+      {
+        heading: "Combien coûte un système de facturation automatisé pour une PME ?",
+        content: "Le coût d'un système de facturation automatisé développé par XenonDz varie selon la complexité :\n\n| Solution | Prix | Délai | Adapté pour |\n|----------|------|-------|-------------|\n| Facturation simple (PDF + envoi) | 20 000 DZD | 3 jours | Freelances, TPE |\n| Facturation + suivi paiements | 35 000 DZD | 5 jours | PME 10-50 factures/mois |\n| Système complet (devis, factures, relances, exports) | 55 000-80 000 DZD | 7-10 jours | PME 50+ factures/mois |\n| Intégration CRM + facturation | Sur devis | 2-3 semaines | Entreprises avec équipe commerciale |\n\nContrairement aux logiciels SaaS internationaux (Zoho, QuickBooks) qui coûtent 2 000-5 000 DZD/mois en abonnement, une solution sur mesure est un investissement unique sans frais récurrents.",
+      },
+    ],
+    faq: [
+      { question: "Le système est-il conforme aux exigences fiscales algériennes ?", answer: "Oui, les factures générées incluent toutes les mentions légales obligatoires en Algérie : raison sociale, adresse, NIF, AI, RC, montant HT, TVA 19% (ou taux applicable), montant TTC, numéro de facture séquentiel, date. Nous consultons les exigences en vigueur lors de chaque développement." },
+      { question: "Peut-on connecter le système à notre comptable ?", answer: "Oui, le système génère automatiquement un export Excel mensuel formaté selon les besoins standards des comptables algériens. Certains cabinets comptables utilisent des logiciels spécifiques — nous pouvons développer des exports adaptés sur demande." },
+      { question: "Et si notre volume de factures augmente ?", answer: "Le système est développé en Python sur infrastructure Vercel/Supabase et gère sans problème des volumes de 500+ factures par mois. Aucun surcoût lié au volume — contrairement aux abonnements SaaS." },
+    ],
+    cta: "Automatisez votre facturation — devis gratuit sous 24h",
+  },
+  {
+    slug: "scraping-google-maps-algerie-guide",
+    title: "Scraper Google Maps en Algérie : Extraire des Leads B2B Automatiquement",
+    description: "Le scraping Google Maps en Algérie permet d'extraire 200 à 1 000 contacts d'entreprises par jour. Guide complet : légalité, outils, cas d'usage et tarifs XenonDz.",
+    publishDate: "2026-06-24",
+    readTime: "8 min",
+    category: "Automatisation",
+    tags: ["scraping google maps algérie", "extraire contacts entreprises algérie", "leads b2b algérie", "prospection automatique algérie"],
+    author: "Rynas Kebdi",
+    intro: "Le scraping Google Maps est la méthode la plus efficace pour extraire des contacts d'entreprises algériennes en masse. En utilisant Python avec Playwright, XenonDz peut extraire entre 200 et 1 000 contacts qualifiés par jour — nom, téléphone, adresse, catégorie, note — pour n'importe quel secteur et n'importe quelle wilaya d'Algérie. Le coût d'un script sur mesure commence à 35 000 DZD.",
+    sections: [
+      {
+        heading: "C'est quoi le scraping Google Maps et comment ça marche ?",
+        content: "Google Maps contient les informations de contact de pratiquement toutes les entreprises d'Algérie référencées en ligne : nom commercial, adresse, numéro de téléphone, site web, horaires d'ouverture, catégorie d'activité et notes clients. Le scraping Google Maps consiste à extraire automatiquement ces données via un script Python qui simule un navigateur web (en utilisant Playwright), navigue dans les résultats de recherche Google Maps et copie les informations dans une feuille de calcul. Ce processus — qui prendrait des semaines à réaliser manuellement — s'effectue en quelques heures de manière automatisée. XenonDz a développé plusieurs scripts de scraping optimisés pour le marché algérien, gérant les particularités locales : translittération des noms en arabe, numéros de téléphone au format algérien (0x xx xx xx xx), wilayas et communes.",
+      },
+      {
+        heading: "Peut-on scraper Google Maps en Algérie légalement ?",
+        content: "La question légale du scraping Google Maps en Algérie mérite une réponse nuancée. Techniquement, les conditions d'utilisation de Google interdisent le scraping automatisé de ses services. Légalement, en Algérie, la loi 09-04 encadre le traitement des données personnelles — mais les données commerciales publiquement accessibles (nom d'entreprise, téléphone professionnel) bénéficient d'un cadre moins restrictif que les données personnelles privées. En pratique, le scraping pour usage B2B interne (enrichissement CRM, prospection commerciale ciblée) est une pratique courante et tolérée. XenonDz adopte une approche responsable : délais entre les requêtes pour ne pas surcharger les serveurs, limitation du débit quotidien, aucune revente de données, et livraison de scripts à usage unique non commercialisés en masse.",
+      },
+      {
+        heading: "Quelles données peut-on extraire de Google Maps ?",
+        content: "Un script de scraping Google Maps développé par XenonDz peut extraire les champs suivants pour chaque établissement :\n\n| Donnée | Disponibilité | Utilité |\n|--------|--------------|--------|\n| Nom commercial | ✅ Toujours | Personnalisation des messages |\n| Numéro de téléphone | ✅ ~80% des fiches | Contact direct |\n| Adresse complète | ✅ Toujours | Ciblage géographique |\n| Site web | ✅ ~50% des fiches | Qualification du prospect |\n| Catégorie d'activité | ✅ Toujours | Segmentation sectorielle |\n| Note moyenne et nombre d'avis | ✅ Toujours | Indicateur de maturité |\n| Horaires d'ouverture | ✅ ~60% des fiches | Planification des appels |\n| Email | ❌ Pas sur Maps | Source complémentaire nécessaire |\n\nLes données sont livrées en format Excel ou Google Sheets, prêtes à importer dans votre CRM.",
+      },
+      {
+        heading: "Comment utiliser ces données pour sa prospection commerciale ?",
+        content: "Une fois la liste de contacts extraite, XenonDz propose un pipeline de prospection automatisé complet :\n\n1. **Nettoyage et qualification** : suppression des doublons, validation des numéros algériens (format 05/06/07 + 8 chiffres), scoring des prospects selon la note et le nombre d'avis\n\n2. **Import CRM** : versement automatique dans Google Sheets, HubSpot (version gratuite) ou Airtable avec statut « à contacter »\n\n3. **Séquence d'emails froids** : si le site web du prospect est connu, extraction automatique de l'email de contact et envoi d'une séquence personnalisée\n\n4. **Listes de rappel téléphonique** : export des numéros dans un format compatible pour les systèmes de numérotation\n\n5. **WhatsApp en masse** : envoi de messages WhatsApp via l'API Cloud aux numéros récoltés (avec templates approuvés Meta)\n\nLe pipeline complet réduit le temps de prospection de 20 heures à 2 heures par semaine.",
+      },
+      {
+        heading: "Combien coûte un service de scraping Google Maps en Algérie ?",
+        content: "XenonDz propose deux formules pour le scraping Google Maps :\n\n| Formule | Prix | Délai | Inclus |\n|---------|------|-------|--------|\n| Script livré (utilisation illimitée) | 35 000 DZD | 3-5 jours | Script Python, interface simple, formation 1h |\n| Service d'extraction (par campagne) | 15 000 DZD | 24-48h | Extraction complète livrée en Excel, sans code |\n| Pipeline complet (scraping + CRM + séquence) | 60 000-90 000 DZD | 7-10 jours | Automatisation bout-en-bout |\n\nAvec le script livré, vous pouvez relancer des extractions à volonté — pour différentes wilayas, différents secteurs — sans coût supplémentaire. C'est la solution recommandée pour les équipes commerciales actives.",
+      },
+    ],
+    faq: [
+      { question: "Combien de temps faut-il pour extraire 1 000 contacts ?", answer: "Avec notre script optimisé, l'extraction de 1 000 contacts prend entre 2 et 8 heures selon la densité des établissements dans la zone ciblée et la connexion internet utilisée. Pour les grandes wilayas comme Alger ou Oran, comptez 4 à 6 heures pour 1 000 contacts." },
+      { question: "Le script fonctionne-t-il sur un PC Windows standard ?", answer: "Oui, le script Python est compatible Windows 10/11. Il nécessite l'installation de Python 3.10+ et de Playwright (procédure guidée fournie). Aucune compétence en programmation n'est requise pour l'utilisation quotidienne — une interface simple est fournie." },
+      { question: "Peut-on cibler uniquement certains secteurs ou wilayas ?", answer: "Oui, le script est entièrement paramétrable : secteur d'activité (ex: dentistes, restaurants, avocats), wilaya, commune, ou même quartier précis. Vous pouvez combiner plusieurs critères pour obtenir des listes ultra-ciblées." },
+      { question: "Les données sont-elles à jour ?", answer: "Les données extraites correspondent à l'état actuel de Google Maps au moment du scraping. Comme Google Maps est mis à jour en temps réel par les entreprises et les utilisateurs, une nouvelle extraction tous les 3 à 6 mois est recommandée pour maintenir la fraîcheur des données." },
+    ],
+    cta: "Obtenez votre liste de prospects algériens — devis sous 24h",
   },
 ];
 
