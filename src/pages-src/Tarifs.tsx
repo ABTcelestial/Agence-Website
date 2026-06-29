@@ -43,10 +43,10 @@ export function Tarifs() {
               }}
             >
               <p className="text-foreground font-semibold leading-relaxed mb-2" style={{ fontSize: "1rem" }}>
-                Le prix d'un site web professionnel en Algérie varie de <strong>35 000 DA</strong> à <strong>120 000 DA</strong> selon le type de projet.
+                Le prix d'un site web professionnel en Algérie varie de <strong>35 000 DA</strong> à <strong>60 000 DA</strong> selon le type de projet.
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-1">
-                Un site vitrine coûte à partir de 20 000 DA, une boutique e-commerce à partir de 120 000 DA, et les solutions d'automatisation démarrent à 35 000 DA. Chaque devis est fixe et sans surprise.
+                Un site vitrine coûte à partir de 20 000 DA, une boutique e-commerce à partir de 60 000 DA, et les solutions d'automatisation démarrent à 35 000 DA. Chaque devis est fixe et sans surprise.
               </p>
               <p className="text-sm font-medium" style={{ color: "var(--accent)" }}>
                 Devis gratuit répondu sous 24h · Livraison 7–14 jours selon le projet.
@@ -89,7 +89,7 @@ export function Tarifs() {
                 <h3 className="text-xl font-bold text-foreground mb-2">Boutique E-commerce</h3>
                 <p className="text-sm text-muted-foreground mb-6">Vendez partout en Algérie, H24.</p>
                 <div className="mb-6">
-                  <span className="text-3xl font-black text-primary" style={{ fontFamily: "var(--font-display)" }}>120 000 DA</span>
+                  <span className="text-3xl font-black text-primary" style={{ fontFamily: "var(--font-display)" }}>60 000 DA</span>
                   <span className="text-sm text-muted-foreground"> / projet</span>
                 </div>
                 <div className="space-y-4 mb-8 flex-1">

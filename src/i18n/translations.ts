@@ -110,7 +110,7 @@ export const translations = {
         },
         {
           name: "Business",
-          price: "dès 120 000 DZD",
+          price: "dès 60 000 DZD",
           tagline: "Une boutique e-commerce taillée pour le marché algérien.",
           features: [
             "Tout le pack Vitrine",

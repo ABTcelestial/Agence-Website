@@ -98,7 +98,7 @@ export const NICHES: Record<string, NicheData> = {
     seoTitle: "Boutique E-commerce Vêtements Algérie | XenonDz",
     seoDesc: "Lancez votre boutique de mode en ligne en Algérie avec paiement à la livraison Yalidine/Maystro. XenonDz crée des e-commerces vêtements performants.",
     desc: "Vendre des vêtements uniquement sur Facebook ou Instagram vous limite. Une vraie boutique e-commerce professionnelle inspire confiance, réduit les abandons de panier et automatise vos commandes.",
-    aeoAnswer: "XenonDz développe des boutiques e-commerce de vêtements en Algérie à partir de 120 000 DA, avec paiement à la livraison (Yalidine, Maystro, Procolis), gestion des stocks par taille et couleur, et tableau de bord de gestion des commandes.",
+    aeoAnswer: "XenonDz développe des boutiques e-commerce de vêtements en Algérie à partir de 60 000 DA, avec paiement à la livraison (Yalidine, Maystro, Procolis), gestion des stocks par taille et couleur, et tableau de bord de gestion des commandes.",
     aeoPoints: [
       "Catalogue produits avec filtres taille, couleur, catégorie",
       "Paiement à la livraison adapté au marché algérien (Yalidine, Maystro)",
@@ -113,7 +113,7 @@ export const NICHES: Record<string, NicheData> = {
       "Formation gestion boutique incluse",
     ],
     faqs: [
-      { q: "Combien coûte une boutique e-commerce de vêtements en Algérie ?", a: "Une boutique e-commerce vêtements chez XenonDz coûte à partir de 120 000 DA. Ce tarif inclut le catalogue produits, l'intégration paiement à la livraison, la gestion des stocks et 6 mois de support." },
+      { q: "Combien coûte une boutique e-commerce de vêtements en Algérie ?", a: "Une boutique e-commerce vêtements chez XenonDz coûte à partir de 60 000 DA. Ce tarif inclut le catalogue produits, l'intégration paiement à la livraison, la gestion des stocks et 6 mois de support." },
       { q: "Peut-on intégrer Yalidine ou Maystro pour la livraison ?", a: "Oui. Nous intégrons les principaux transporteurs algériens : Yalidine, Maystro, Procolis et Rocket Express. Les étiquettes de livraison sont générées automatiquement." },
     ],
   },

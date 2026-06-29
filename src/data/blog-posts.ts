@@ -27,7 +27,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "prix-creation-site-web-algerie",
     title: "Prix Création Site Web en Algérie en 2026 : Comparatif Complet",
-    description: "Combien coûte un site web professionnel en Algérie ? De 20 000 DZD à 120 000 DZD selon le type. Comparatif détaillé des tarifs freelance, agences et solutions DIY.",
+    description: "Combien coûte un site web professionnel en Algérie ? De 20 000 DZD à 60 000 DZD selon le type. Comparatif détaillé des tarifs freelance, agences et solutions DIY.",
     publishDate: "2026-05-10",
     readTime: "8 min",
     category: "Tarifs & Devis",
@@ -41,7 +41,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: "Combien coûte une boutique e-commerce en Algérie ?",
-        content: "Une boutique e-commerce professionnelle en Algérie coûte entre 80 000 et 200 000 DZD. Notre offre e-commerce démarre à 120 000 DZD et intègre les spécificités du marché algérien : paiement à la livraison (Cash-on-Delivery), intégration Yalidine et Maystro pour la logistique, et gestion des wilayas de livraison.\n\nUne boutique moins chère (Shopify, Wix e-commerce) vous coûtera entre 2 000 et 5 000 DA par mois en frais récurrents, sans compter les commissions par transaction. Sur 3 ans, c'est souvent plus cher qu'un développement sur mesure.\n\nÉléments critiques pour une boutique e-commerce algérienne : la rapidité de la page produit (une seconde de délai = 7% de ventes perdues), l'intégration des transporteurs locaux et un panneau d'administration simple pour gérer les commandes sans développeur.",
+        content: "Une boutique e-commerce professionnelle en Algérie coûte entre 80 000 et 200 000 DZD. Notre offre e-commerce démarre à 60 000 DZD et intègre les spécificités du marché algérien : paiement à la livraison (Cash-on-Delivery), intégration Yalidine et Maystro pour la logistique, et gestion des wilayas de livraison.\n\nUne boutique moins chère (Shopify, Wix e-commerce) vous coûtera entre 2 000 et 5 000 DA par mois en frais récurrents, sans compter les commissions par transaction. Sur 3 ans, c'est souvent plus cher qu'un développement sur mesure.\n\nÉléments critiques pour une boutique e-commerce algérienne : la rapidité de la page produit (une seconde de délai = 7% de ventes perdues), l'intégration des transporteurs locaux et un panneau d'administration simple pour gérer les commandes sans développeur.",
       },
       {
         heading: "Freelance vs agence : quelle différence de prix et de qualité ?",

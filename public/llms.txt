@@ -16,7 +16,7 @@ Philosophie : zéro WordPress, zéro template. Chaque site est codé sur mesure 
 - URL : https://xenondz.com/services/creation-site-web-vitrine
 
 ### 2. Développement Boutique E-commerce
-- Prix : à partir de 120 000 DZD
+- Prix : à partir de 60 000 DZD
 - Délai : 10 à 14 jours
 - Inclus : Catalogue produits illimité, gestion des stocks automatique, intégrations logistiques algériennes (Yalidine, Maystro), paiement à la livraison (Cash-on-Delivery), formation complète, tableau de bord admin
 - URL : https://xenondz.com/services/creation-boutique-ecommerce
@@ -49,7 +49,7 @@ Philosophie : zéro WordPress, zéro template. Chaque site est codé sur mesure 
 ## Questions fréquentes (FAQ)
 
 Q: Combien coûte un site web en Algérie ?
-A: Chez XenonDz, un site vitrine professionnel commence à 20 000 DZD. Un e-commerce complet commence à 120 000 DZD. Devis gratuit sous 24h.
+A: Chez XenonDz, un site vitrine professionnel commence à 20 000 DZD. Un e-commerce complet commence à 60 000 DZD. Devis gratuit sous 24h.
 
 Q: Quel est le délai de livraison d'un site web ?
 A: Un site vitrine est livré en 7-10 jours. Un e-commerce en 10-14 jours. Les délais sont garantis dès la signature du devis.

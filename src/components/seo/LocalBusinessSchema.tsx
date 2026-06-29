@@ -83,7 +83,7 @@ const schema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Développement Boutique E-commerce",
-          "description": "Boutiques en ligne clés en main avec paiement à la livraison, à partir de 120 000 DZD",
+          "description": "Boutiques en ligne clés en main avec paiement à la livraison, à partir de 60 000 DZD",
           "url": `${BASE_URL}/services/creation-boutique-ecommerce`,
         },
       },

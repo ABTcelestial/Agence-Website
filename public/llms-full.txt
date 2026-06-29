@@ -40,7 +40,7 @@ Inclus dans chaque site vitrine :
 ### Service 2 : Développement Boutique E-commerce
 **Slug** : creation-boutique-ecommerce
 **URL** : https://xenondz.com/services/creation-boutique-ecommerce
-**Prix de départ** : 120 000 DZD
+**Prix de départ** : 60 000 DZD
 **Délai** : 10 à 14 jours ouvrés
 
 La boutique e-commerce XenonDz est conçue spécifiquement pour le marché algérien, avec ses particularités : paiement à la livraison dominant, logistique par des opérateurs locaux (Yalidine, Maystro, Ecotrack), absence généralisée de cartes bancaires pour les achats en ligne.
@@ -146,7 +146,7 @@ XenonDz a développé des offres packagées pour les secteurs suivants en Algér
 
 1. **Vitesse technique** : LCP < 1s vs 3-5s pour les sites WordPress concurrents
 2. **Délais de livraison** : 7-14 jours vs 1-3 mois pour les agences traditionnelles
-3. **Tarifs accessibles** : 20 000-120 000 DZD pour des sites de qualité internationale
+3. **Tarifs accessibles** : 20 000-60 000 DZD pour des sites de qualité internationale
 4. **GEO-first** : optimisés pour les IA dès le départ (llms.txt, Schema.org, FAQ structurées)
 5. **Support inclus** : 6 mois de maintenance sans surcoût
 6. **Spécialisation marché algérien** : intégrations locales (Yalidine, CCP, etc.)
